@@ -14,12 +14,17 @@
 
 ### 主色调
 ```css
---color-background: #F5F5F5;      /* 浅灰背景 */
---color-text-primary: #000000;    /* 主文字黑色 */
---color-text-secondary: #666666;  /* 次要文字灰色 */
---color-accent: #5B5FFF;          /* 主题蓝色(按钮/链接) */
---color-accent-hover: #4B4FEF;    /* 蓝色悬停态 */
+--dr-bg: #F5F5F5;                 /* Duncan Robert背景色 */
+--dr-black: #000000;              /* 主文字黑色 */
+--dr-gray: #666666;               /* 次要文字灰色 */
+--dr-blue: #5B5FFF;               /* 主题蓝色(按钮/链接) */
+--dr-blue-hover: #4B4FEF;        /* 蓝色悬停态 */
 ```
+
+### 暗色模式
+- 支持系统偏好自动切换
+- 手动切换开关（底部悬浮）
+- 暗色模式颜色自动反转
 
 ### 功能色
 ```css
@@ -41,18 +46,21 @@
 
 ### 字体家族
 ```css
---font-primary: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", system-ui, sans-serif;
+--font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", system-ui, "Inter", sans-serif;
+--font-display: "Bebas Neue", "Oswald", "Impact", "Anton", ui-sans-serif, system-ui, sans-serif;
 --font-mono: "SF Mono", "Monaco", "Inconsolata", monospace;
 ```
 
 ### 字体大小
 ```css
---text-hero: 72px;          /* 主标题 - DIGITAL DESIGNER */
+--text-display-hero: clamp(104px, 6vw, 156px);  /* 响应式主标题 - DIGITAL DESIGNER */
+--text-hero-name: 13px;     /* 名字标签 - 带字间距 */
 --text-h1: 48px;            /* 页面大标题 */
 --text-h2: 36px;            /* 区域标题 */
 --text-h3: 24px;            /* 卡片标题 */
 --text-h4: 20px;            /* 小标题 */
 --text-body: 16px;          /* 正文 */
+--text-subtitle: clamp(14px, 1.02vw, 16px);  /* 响应式副标题 */
 --text-small: 14px;         /* 小字 */
 --text-tiny: 12px;          /* 极小字 */
 ```
@@ -122,12 +130,15 @@
 
 ## 组件规范
 
-### 导航栏
-- **高度**: 80px
-- **背景**: 透明渐变到白色(滚动时)
-- **Logo**: 40x40px 圆形头像
-- **导航链接**: 16px, 中等字重, 40px间距
-- **Contact按钮**: 黑底白字, 40px高度, 20px圆角
+### 导航栏（浮岛式设计）
+- **样式**: 浮岛式，非传统固定header
+- **位置**: 顶部居中悬浮 (top: 24px)
+- **容器**: 圆角全包围 (border-radius: 999px)
+- **背景**: 半透明白色/黑色，带模糊效果
+- **滚动效果**: 背景透明度变化
+- **Avatar**: 32x32px 圆形头像，带在线状态指示器
+- **导航链接**: 14px, 正常字重, 32px间距
+- **Contact按钮**: 黑底白字(暗色模式反转), 胶囊形状
 
 ### 按钮
 ```css
@@ -228,17 +239,21 @@
 
 ## 特殊元素
 
-### Hero区域人物图片
-- 圆角矩形遮罩
-- 灰度滤镜效果
-- 固定宽高比
-- 响应式缩放
+### Hero区域布局
+- **布局**: 三列网格 (grid-cols-[1fr_auto_1fr])
+- **图片位置**: 居中在"DIGITAL"和"DESIGNER"之间
+- **图片尺寸**: 330x440px
+- **图片圆角**: 24px
+- **图片阴影**: 深层阴影效果
+- **人名标签**: 左上角外侧，12px大写，0.45em字间距
+- **Hi按钮**: 96x96px蓝色圆形，左下角偏移
+- **副标题**: 在"DESIGNER"下方，响应式大小
 
 ### 装饰性元素
-- 蓝色圆点指示器
-- 渐变背景效果
-- 几何图形装饰
+- 主题切换开关（底部固定悬浮）
+- 图片后方白色光晕效果
 - 模糊背景效果
+- 圆角设计语言贯穿
 
 ### 分页指示器
 - 点状或线状
