@@ -14,7 +14,8 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        sans: ["-apple-system", "BlinkMacSystemFont", "SF Pro Display", "Segoe UI", "system-ui", "sans-serif"],
+        sans: ["-apple-system", "BlinkMacSystemFont", "SF Pro Display", "Segoe UI", "system-ui", "Inter", "sans-serif"],
+        display: ["Bebas Neue", "Oswald", "Impact", "Anton", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       colors: {
         // 保留shadcn/ui的CSS变量
@@ -79,12 +80,15 @@ const config: Config = {
       },
       fontSize: {
         'hero': ['120px', { lineHeight: '1', fontWeight: '900', letterSpacing: '-0.02em' }],
-        'hero-name': ['18px', { lineHeight: '1.2', fontWeight: '400', letterSpacing: '0.3em' }],
+        'hero-name': ['13px', { lineHeight: '1.2', fontWeight: '400', letterSpacing: '0.35em' }],
         'h1': ['48px', { lineHeight: '1.2', fontWeight: '700' }],
         'h2': ['36px', { lineHeight: '1.3', fontWeight: '600' }],
         'h3': ['24px', { lineHeight: '1.4', fontWeight: '600' }],
         'h4': ['20px', { lineHeight: '1.5', fontWeight: '500' }],
-        'subtitle': ['15px', { lineHeight: '1.6', fontWeight: '400' }],
+        // Responsive subtitle for hero subcopy
+        'subtitle': ['clamp(14px,1.02vw,16px)', { lineHeight: '1.6', fontWeight: '400' }],
+        // Display title for hero, tuned to wide screens to avoid oversize
+        'display-hero': ['clamp(104px,6vw,156px)', { lineHeight: '0.9', fontWeight: '600', letterSpacing: '-0.02em' }],
       },
       spacing: {
         'container': '80px',

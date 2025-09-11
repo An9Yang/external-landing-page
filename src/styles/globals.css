@@ -165,10 +165,10 @@
   }
 }
 
-/* Apply Framix Design System styles to body */
+/* Body colors follow Tailwind CSS tokens so that dark mode works */
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text-primary);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
 }
 
 /* Grid Background Pattern */
