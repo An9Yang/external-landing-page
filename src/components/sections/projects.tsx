@@ -107,45 +107,60 @@ const ProjectsSection = () => {
       </div>
 
       {/* 卡片容器 - 固定定位，占据整个视口 */}
-      <div className="sticky top-0 h-screen flex items-center justify-center">
-        <div className="relative w-full max-w-[1300px] h-[750px] mx-auto px-20">
+      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+        <div className="relative w-full max-w-[1100px] h-[650px] mx-auto px-20">
           {projects.map((project, index) => {
             // 计算每个卡片的进度
+            const cardStartScroll = index * 0.25; // 每张卡片在总进度的起始点
+            const cardEndScroll = (index + 1) * 0.25; // 每张卡片在总进度的结束点
+            
+            // 计算当前卡片的个体进度 (0 到 1)
             const cardProgress = Math.max(0, Math.min(1, 
-              (scrollProgress - (index * 0.25)) * 4
+              (scrollProgress - cardStartScroll) / (cardEndScroll - cardStartScroll)
             ));
             
-            // 计算卡片的变换
-            const isActive = index === activeCard;
-            const isPassed = index < activeCard;
+            // 计算下一张卡片的进入进度
+            const nextCardProgress = index === activeCard ? cardProgress : 0;
             
             let scale = 1;
             let translateY = 0;
             let opacity = 1;
             let zIndex = projects.length - index;
             
-            if (isPassed) {
-              // 已经滑过的卡片：缩小并上移
-              scale = 0.75;
-              translateY = -100;
-              opacity = 0;
-            } else if (isActive) {
-              // 当前活跃的卡片：正在缩小和上移
-              scale = 1 - cardProgress * 0.25;
-              translateY = -cardProgress * 100;
-              opacity = 1 - cardProgress * 1;
-              zIndex = projects.length + 10;
+            if (index < activeCard) {
+              // 已经完全滑过的卡片：缩小并在顶部
+              scale = 0.85;
+              translateY = -50; // 稍微在顶部
+              opacity = 1; // 保持不透明
+              zIndex = index;
+            } else if (index === activeCard) {
+              // 当前活跃的卡片
+              if (nextCardProgress > 0.85) {
+                // 当下一张卡片接近顶部时，当前卡片开始缩小
+                const scaleProgress = (nextCardProgress - 0.85) / 0.15;
+                scale = 1 - scaleProgress * 0.12;
+                translateY = -scaleProgress * 40;
+                opacity = 1; // 保持不透明
+              } else {
+                scale = 1;
+                translateY = 0;
+                opacity = 1;
+              }
+              zIndex = 50;
             } else if (index === activeCard + 1) {
-              // 下一张卡片：从后面出现
-              scale = 0.95 + cardProgress * 0.05;
-              translateY = 0;
+              // 下一张卡片：从屏幕底部滑入
+              const windowHeight = window.innerHeight;
+              // 从屏幕底部外开始，滑动到中心位置
+              translateY = windowHeight * (1 - nextCardProgress);
+              scale = 1; // 保持原始大小直到覆盖当前卡片
               opacity = 1;
-              zIndex = projects.length - index;
+              zIndex = 60; // 在当前卡片上方
             } else {
-              // 其他未到达的卡片：完全重叠在后面
-              scale = 0.95;
-              translateY = 0;
-              opacity = 1;
+              // 还未出现的卡片：在屏幕底部外等待
+              const windowHeight = window.innerHeight;
+              translateY = windowHeight;
+              scale = 1;
+              opacity = 0;
               zIndex = projects.length - index;
             }
 
@@ -158,9 +173,10 @@ const ProjectsSection = () => {
                   "transition-all duration-700 ease-out"
                 )}
                 style={{
-                  transform: `scale(${scale}) translateY(${translateY}px)`,
+                  transform: `translateY(${translateY}px) scale(${scale})`,
                   opacity,
                   zIndex,
+                  willChange: 'transform',
                 }}
               >
                 {/* 背景图片 */}
