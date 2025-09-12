@@ -48,7 +48,6 @@ const projects: Project[] = [
 const ProjectsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [activeCard, setActiveCard] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,16 +65,10 @@ const ProjectsSection = () => {
       if (scrollY >= sectionScrollStart && scrollY <= sectionScrollEnd) {
         const progress = (scrollY - sectionScrollStart) / (sectionScrollEnd - sectionScrollStart);
         setScrollProgress(Math.max(0, Math.min(1, progress)));
-        
-        // 计算当前活跃的卡片索引
-        const cardIndex = Math.floor(progress * (projects.length - 0.5));
-        setActiveCard(Math.max(0, Math.min(projects.length - 1, cardIndex)));
       } else if (scrollY < sectionScrollStart) {
         setScrollProgress(0);
-        setActiveCard(0);
       } else {
         setScrollProgress(1);
-        setActiveCard(projects.length - 1);
       }
     };
 
@@ -90,7 +83,7 @@ const ProjectsSection = () => {
       ref={sectionRef}
       className="relative bg-background"
       id="projects"
-      style={{ height: `${250 + projects.length * 120}vh` }} // 增加高度以容纳更多滚动
+      style={{ height: `${400 + projects.length * 150}vh` }} // 进一步增加高度确保最后一张卡片能完全滑入
     >
       {/* 标题部分 - 不再固定，可以被滚动推出 */}
       <div className="pt-[200px] pb-[150px] bg-background">
@@ -110,73 +103,63 @@ const ProjectsSection = () => {
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
         <div className="relative w-full max-w-[1100px] h-[650px] mx-auto px-20">
           {projects.map((project, index) => {
-            // 计算每个卡片的进度
-            const cardStartScroll = index * 0.25; // 每张卡片在总进度的起始点
-            const cardEndScroll = (index + 1) * 0.25; // 每张卡片在总进度的结束点
+            const windowHeight = window.innerHeight;
+            
+            // 每张卡片占总进度的一部分（有重叠）
+            const cardDuration = 0.35; // 动画持续时间
+            const totalCards = projects.length;
+            const spacing = 0.3; // 固定间隙
+            
+            // 计算需要的总进度范围
+            const lastCardStart = (totalCards - 1) * spacing;
+            const totalProgressNeeded = lastCardStart + cardDuration;
+            
+            // 将scrollProgress从[0,1]映射到[0,totalProgressNeeded]
+            const mappedProgress = scrollProgress * totalProgressNeeded;
+            
+            // 所有卡片正常间隔
+            const cardProgressStart = index * spacing;
+            const cardProgressEnd = cardProgressStart + cardDuration;
             
             // 计算当前卡片的个体进度 (0 到 1)
-            const cardProgress = Math.max(0, Math.min(1, 
-              (scrollProgress - cardStartScroll) / (cardEndScroll - cardStartScroll)
-            ));
-            
-            // 计算下一张卡片的进入进度
-            const nextCardProgress = index === activeCard ? cardProgress : 0;
-            
-            let scale = 1;
-            let translateY = 0;
-            let opacity = 1;
-            let zIndex = projects.length - index;
-            
-            if (index < activeCard) {
-              // 已经完全滑过的卡片：缩小并在顶部
-              scale = 0.85;
-              translateY = -50; // 稍微在顶部
-              opacity = 1; // 保持不透明
-              zIndex = index;
-            } else if (index === activeCard) {
-              // 当前活跃的卡片
-              if (nextCardProgress > 0.85) {
-                // 当下一张卡片接近顶部时，当前卡片开始缩小
-                const scaleProgress = (nextCardProgress - 0.85) / 0.15;
-                scale = 1 - scaleProgress * 0.12;
-                translateY = -scaleProgress * 40;
-                opacity = 1; // 保持不透明
-              } else {
-                scale = 1;
-                translateY = 0;
-                opacity = 1;
-              }
-              zIndex = 50;
-            } else if (index === activeCard + 1) {
-              // 下一张卡片：从屏幕底部滑入
-              const windowHeight = window.innerHeight;
-              // 从屏幕底部外开始，滑动到中心位置
-              translateY = windowHeight * (1 - nextCardProgress);
-              scale = 1; // 保持原始大小直到覆盖当前卡片
-              opacity = 1;
-              zIndex = 60; // 在当前卡片上方
-            } else {
-              // 还未出现的卡片：在屏幕底部外等待
-              const windowHeight = window.innerHeight;
-              translateY = windowHeight;
-              scale = 1;
-              opacity = 0;
-              zIndex = projects.length - index;
+            let cardProgress = 0;
+            if (mappedProgress >= cardProgressStart && mappedProgress <= cardProgressEnd) {
+              cardProgress = (mappedProgress - cardProgressStart) / (cardProgressEnd - cardProgressStart);
+            } else if (mappedProgress > cardProgressEnd) {
+              cardProgress = 1;
             }
+            
+            // 卡片Y位置：从屏幕底部滑到中心
+            let translateY = (windowHeight / 2 + 325) * (1 - cardProgress); // 325是卡片高度的一半
+            
+            // 缩放逻辑：当下一张卡片开始进入时就开始缩小
+            let scale = 1;
+            const nextCardStart = (index + 1) * spacing;
+            if (mappedProgress > nextCardStart && index < totalCards - 1) {
+              // 计算下一张卡片的进度
+              const nextCardProgress = Math.min(1, (mappedProgress - nextCardStart) / cardDuration);
+              // 从下一张卡片一开始进入就开始缩小
+              scale = 1 - nextCardProgress * 0.12; // 线性缩小到0.88
+            }
+            
+            // Z-index：后面的卡片在上面
+            const zIndex = (index + 1) * 10;
+            
+            // 如果卡片还没开始进入，隐藏它
+            const opacity = mappedProgress >= cardProgressStart ? 1 : 0;
 
             return (
               <div
                 key={project.id}
                 className={cn(
                   "absolute inset-0 rounded-[32px] overflow-hidden",
-                  "shadow-[0_50px_100px_rgba(0,0,0,0.2)]",
-                  "transition-all duration-700 ease-out"
+                  "shadow-[0_50px_100px_rgba(0,0,0,0.2)]"
                 )}
                 style={{
                   transform: `translateY(${translateY}px) scale(${scale})`,
                   opacity,
                   zIndex,
-                  willChange: 'transform',
+                  transition: 'none',
                 }}
               >
                 {/* 背景图片 */}
