@@ -71,17 +71,17 @@ const ServicesSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="min-h-screen bg-background py-24 relative"
+      className="min-h-screen bg-background relative"
       id="services"
     >
-      <div className="max-w-[1440px] mx-auto px-20">
+      <div className="max-w-[1440px] mx-auto px-20 pt-[216px]">
         <div className="grid grid-cols-[1fr_auto] gap-20 items-start">
           
           {/* 左侧 - 服务列表 */}
           <div className="space-y-8">
             {/* 标题 */}
-            <div className="mb-12">
-              <h2 className="text-[48px] font-bold text-foreground mb-4">
+            <div className="mb-16">
+              <h2 className="text-[48px] font-bold text-foreground mb-6">
                 WHAT I CAN DO FOR YOU
               </h2>
               <p className="text-[16px] text-foreground/60 max-w-[500px]">
