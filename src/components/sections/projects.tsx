@@ -90,10 +90,10 @@ const ProjectsSection = () => {
       ref={sectionRef}
       className="relative bg-background"
       id="projects"
-      style={{ height: `${100 + projects.length * 100}vh` }} // 动态高度以容纳滚动
+      style={{ height: `${250 + projects.length * 120}vh` }} // 增加高度以容纳更多滚动
     >
-      {/* 标题部分 - 固定在顶部 */}
-      <div className="sticky top-0 pt-[200px] pb-8 bg-background z-10">
+      {/* 标题部分 - 不再固定，可以被滚动推出 */}
+      <div className="pt-[200px] pb-[150px] bg-background">
         <div className="max-w-[1440px] mx-auto px-20">
           <h2 className="text-[48px] font-bold text-foreground mb-4">
             FEATURED PROJECTS
@@ -106,9 +106,9 @@ const ProjectsSection = () => {
         </div>
       </div>
 
-      {/* 卡片容器 - 固定定位 */}
-      <div className="sticky top-[40vh] h-[60vh] flex items-center justify-center mt-20">
-        <div className="relative w-full max-w-[1000px] h-[500px] mx-auto px-20">
+      {/* 卡片容器 - 固定定位，占据整个视口 */}
+      <div className="sticky top-0 h-screen flex items-center justify-center">
+        <div className="relative w-full max-w-[1300px] h-[750px] mx-auto px-20">
           {projects.map((project, index) => {
             // 计算每个卡片的进度
             const cardProgress = Math.max(0, Math.min(1, 
@@ -126,28 +126,35 @@ const ProjectsSection = () => {
             
             if (isPassed) {
               // 已经滑过的卡片：缩小并上移
-              scale = 0.85;
-              translateY = -50;
-              opacity = 0.3;
+              scale = 0.75;
+              translateY = -100;
+              opacity = 0;
             } else if (isActive) {
-              // 当前活跃的卡片：正在缩小
-              scale = 1 - cardProgress * 0.15;
-              translateY = -cardProgress * 30;
+              // 当前活跃的卡片：正在缩小和上移
+              scale = 1 - cardProgress * 0.25;
+              translateY = -cardProgress * 100;
+              opacity = 1 - cardProgress * 1;
+              zIndex = projects.length + 10;
+            } else if (index === activeCard + 1) {
+              // 下一张卡片：从后面出现
+              scale = 0.95 + cardProgress * 0.05;
+              translateY = 0;
               opacity = 1;
-              zIndex = projects.length;
+              zIndex = projects.length - index;
             } else {
-              // 还未到达的卡片：在下方等待
+              // 其他未到达的卡片：完全重叠在后面
               scale = 0.95;
-              translateY = (index - activeCard) * 60;
-              opacity = Math.max(0, 1 - (index - activeCard) * 0.3);
+              translateY = 0;
+              opacity = 1;
+              zIndex = projects.length - index;
             }
 
             return (
               <div
                 key={project.id}
                 className={cn(
-                  "absolute inset-0 rounded-[24px] overflow-hidden",
-                  "shadow-[0_34px_80px_rgba(0,0,0,0.15)]",
+                  "absolute inset-0 rounded-[32px] overflow-hidden",
+                  "shadow-[0_50px_100px_rgba(0,0,0,0.2)]",
                   "transition-all duration-700 ease-out"
                 )}
                 style={{
@@ -166,24 +173,24 @@ const ProjectsSection = () => {
                 </div>
 
                 {/* 内容覆盖层 */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
 
                 {/* 卡片内容 */}
-                <div className="absolute bottom-0 left-0 right-0 p-12">
+                <div className="absolute bottom-0 left-0 right-0 p-16">
                   {/* 类别标签 */}
-                  <div className="inline-block mb-4">
-                    <span className="px-4 py-2 bg-dr-blue text-white text-[12px] font-medium rounded-full">
+                  <div className="inline-block mb-6">
+                    <span className="px-5 py-2.5 bg-dr-blue text-white text-[13px] font-medium rounded-full">
                       {project.category}
                     </span>
                   </div>
 
                   {/* 标题 */}
-                  <h3 className="text-[36px] font-bold text-white mb-4 leading-tight">
+                  <h3 className="text-[42px] font-bold text-white mb-6 leading-tight">
                     {project.title}
                   </h3>
 
                   {/* 描述 */}
-                  <p className="text-[14px] text-white/80 max-w-[600px] leading-relaxed">
+                  <p className="text-[16px] text-white/80 max-w-[700px] leading-relaxed">
                     {project.description}
                   </p>
                 </div>
@@ -193,27 +200,6 @@ const ProjectsSection = () => {
         </div>
       </div>
 
-      {/* 底部浏览按钮 */}
-      <div className="sticky bottom-20 flex justify-center">
-        <button className="px-8 py-3 border-2 border-dr-blue text-dr-blue bg-white/90 backdrop-blur-sm rounded-full font-medium text-[14px] hover:bg-dr-blue hover:text-white transition-all duration-300">
-          BROWSE ALL PROJECTS
-        </button>
-      </div>
-
-      {/* 进度指示器 */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-50">
-        {projects.map((_, index) => (
-          <div
-            key={index}
-            className={cn(
-              "w-2 h-2 rounded-full transition-all duration-300",
-              index === activeCard 
-                ? "w-8 bg-dr-blue" 
-                : "bg-foreground/20"
-            )}
-          />
-        ))}
-      </div>
     </section>
   );
 };
