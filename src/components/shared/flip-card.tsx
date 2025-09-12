@@ -134,19 +134,6 @@ const FlipCard = ({ frontImage, backImage, className }: FlipCardProps) => {
         Hi
       </button>
 
-      {/* 名字标签 - 使用小标题样式，与 DIGITAL 对齐 */}
-      <div 
-        className="absolute -top-12 z-10"
-        style={{
-          left: "-165px", // 对齐到 DIGITAL 的左边
-          opacity: Math.max(0, 1 - scrollProgress * 2),
-          transform: `scale(${Math.max(0.8, 1 - scrollProgress * 0.3)})`
-        }}
-      >
-        <span className="text-[13px] font-normal uppercase tracking-[0.35em] text-[#909090] dark:text-[#B0B0B0] whitespace-nowrap">
-          DUNCAN ROBERT
-        </span>
-      </div>
 
       {/* 3D 卡片容器 */}
       <div 

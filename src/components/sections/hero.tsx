@@ -39,9 +39,17 @@ const HeroSection = ({ hideCard = false }: HeroSectionProps) => {
           <div className="relative grid grid-cols-[1fr_auto_1fr] items-center gap-8">
             {/* DIGITAL - 左侧 */}
             <div className="text-right relative pr-4">
-              <h1 className="font-display uppercase text-display-hero text-foreground">
-                Digital
-              </h1>
+              <div className="inline-block text-left">
+                {/* DUNCAN ROBERT - 名字标题 */}
+                <div className="mb-2">
+                  <span className="text-[14px] font-medium uppercase tracking-[0.3em] text-[#666666] dark:text-[#B0B0B0]">
+                    DUNCAN ROBERT
+                  </span>
+                </div>
+                <h1 className="font-display uppercase text-display-hero text-foreground">
+                  Digital
+                </h1>
+              </div>
             </div>
 
             {/* Hero Image - 中间 */}

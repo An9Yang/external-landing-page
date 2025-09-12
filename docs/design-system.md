@@ -54,7 +54,7 @@
 ### 字体大小
 ```css
 --text-display-hero: clamp(104px, 6vw, 156px);  /* 响应式主标题 - DIGITAL DESIGNER */
---text-hero-name: 13px;     /* 名字标签 - 带字间距 */
+--text-hero-name: 14px;     /* 名字标签 - DUNCAN ROBERT 在DIGITAL上方 */
 --text-h1: 48px;            /* 页面大标题 */
 --text-h2: 36px;            /* 区域标题 */
 --text-h3: 24px;            /* 卡片标题 */
@@ -245,7 +245,7 @@
 - **图片尺寸**: 330x440px
 - **图片圆角**: 24px
 - **图片阴影**: 深层阴影效果
-- **人名标签**: 左上角外侧，12px大写，0.45em字间距
+- **人名标签**: 在DIGITAL上方，14px大写，0.3em字间距
 - **Hi按钮**: 96x96px蓝色圆形，左下角偏移
 - **副标题**: 在"DESIGNER"下方，响应式大小
 
