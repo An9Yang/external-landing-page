@@ -1,2 +1,43 @@
 /.claude
 node_modules
+dist
+
+# 日志文件
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 编辑器目录和文件
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.swp
+*.swo
+*~
+
+# 环境变量
+.env.local
+.env.*.local
+
+# 临时文件
+.temp
+.cache
+*.tmp
+
+# 构建缓存
+.rsbuild
+.turbo
+
+# 测试覆盖率
+coverage
+*.lcov
+
+# TypeScript缓存
+*.tsbuildinfo
