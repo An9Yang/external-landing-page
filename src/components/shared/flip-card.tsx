@@ -12,7 +12,6 @@ const FlipCard = ({ frontImage, backImage, className }: FlipCardProps) => {
   const [scrollProgress2, setScrollProgress2] = useState(0); // 第二段动画进度
   const [cardPosition, setCardPosition] = useState({ x: 0, y: 0 });
   const [hiButtonScale, setHiButtonScale] = useState(1);
-  const [isVisible, setIsVisible] = useState(true);
   const cardRef = useRef<HTMLDivElement>(null);
   const heroSectionRef = useRef<HTMLElement | null>(null);
   const servicesSectionRef = useRef<HTMLElement | null>(null);
@@ -28,14 +27,12 @@ const FlipCard = ({ frontImage, backImage, className }: FlipCardProps) => {
       if (!heroSectionRef.current || !servicesSectionRef.current || !cardRef.current) return;
 
       const windowHeight = window.innerHeight;
-      
-      const servicesTop = servicesSectionRef.current.offsetTop;
       const currentScroll = window.scrollY;
+      const servicesTop = servicesSectionRef.current.offsetTop;
       
       // 第一段动画：Hero -> Services
-      // 延长动画距离1.5倍
       const scrollStart1 = 0;
-      const scrollEnd1 = servicesTop + windowHeight * 0.5; // 延长结束点
+      const scrollEnd1 = servicesTop + windowHeight * 0.5;
       
       let progress1 = 0;
       if (currentScroll >= scrollStart1 && currentScroll <= scrollEnd1) {
@@ -49,11 +46,14 @@ const FlipCard = ({ frontImage, backImage, className }: FlipCardProps) => {
       
       // 第二段动画：Services -> About
       let progress2 = 0;
+      let cardY = 0;
+      
       if (aboutSectionRef.current) {
         const aboutTop = aboutSectionRef.current.offsetTop;
+        
         // 延长动画距离，确保在About内容到达屏幕中心时完成
         const scrollStart2 = servicesTop;
-        const scrollEnd2 = aboutTop + windowHeight * 0.3; // 调整结束点，让内容居中时动画完成
+        const scrollEnd2 = aboutTop + windowHeight * 0.3;
         
         if (currentScroll >= scrollStart2 && currentScroll <= scrollEnd2) {
           progress2 = (currentScroll - scrollStart2) / (scrollEnd2 - scrollStart2);
@@ -63,25 +63,33 @@ const FlipCard = ({ frontImage, backImage, className }: FlipCardProps) => {
         } else if (currentScroll > scrollEnd2) {
           progress2 = 1;
         }
+        
+        // 第三阶段：About section之后，卡片跟随页面向上移动
+        // 使用fixed定位，但通过Y偏移模拟跟随效果
+        // 更早开始跟随，当About内容接近屏幕中心时
+        const aboutLockPoint = aboutTop + windowHeight * 0.1;
+        
+        if (currentScroll > aboutLockPoint) {
+          // 计算超出锁定点的滚动距离
+          const overScroll = currentScroll - aboutLockPoint;
+          // 应用负向Y偏移，让卡片看起来跟随页面向上移动
+          cardY = -overScroll;
+        } else {
+          cardY = 0;
+        }
       }
 
       setScrollProgress(progress1);
       setScrollProgress2(progress2);
 
-      // 计算卡片位置
-      // 初始位置（Hero section 中的位置 - 轻微向左偏移）
+      // 计算卡片水平位置
       const initialX = -10; // 轻微向左偏移
-      const initialY = 0;
-      
-      // 目标位置（Services section 右侧 - 不要垂直移动）
       const targetX = 420; // 向右移动到 Services 右侧
-      const targetY = 0; // 保持水平，不垂直移动
       
-      // 根据第一段动画进度计算位置（第二段动画时位置保持不变）
+      // 根据第一段动画进度计算位置
       const currentX = initialX + (targetX - initialX) * progress1;
-      const currentY = initialY; // 始终保持水平
       
-      setCardPosition({ x: currentX, y: currentY });
+      setCardPosition({ x: currentX, y: cardY });
 
       // Hi 按钮缩放（从 1 到 0）
       setHiButtonScale(Math.max(0, 1 - progress1 * 1.5)); // 更快消失
@@ -133,7 +141,6 @@ const FlipCard = ({ frontImage, backImage, className }: FlipCardProps) => {
       >
         Hi
       </button>
-
 
       {/* 3D 卡片容器 */}
       <div 
@@ -191,8 +198,8 @@ const FlipCard = ({ frontImage, backImage, className }: FlipCardProps) => {
           <div 
             className="absolute top-6 left-6 flex items-center gap-2 bg-white/90 dark:bg-black/90 backdrop-blur-sm rounded-full px-4 py-2"
             style={{
-              // 在第一段动画70%后显示，第二段动画30%后开始隐藏
-              opacity: Math.max(0, Math.min((scrollProgress - 0.7) * 3.33, 1 - scrollProgress2 * 2)),
+              // 在第一段动画70%后显示，保持显示
+              opacity: Math.max(0, (scrollProgress - 0.7) * 3.33),
               transform: `scale(${Math.max(0.8, scrollProgress)})`
             }}
           >
