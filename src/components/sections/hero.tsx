@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 
-const HeroSection = () => {
+interface HeroSectionProps {
+  hideCard?: boolean;
+}
+
+const HeroSection = ({ hideCard = false }: HeroSectionProps) => {
   const [isDark, setIsDark] = useState(false);
 
   const applyTheme = (dark: boolean) => {
@@ -25,56 +30,41 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-[92vh] flex items-center justify-center bg-transparent overflow-hidden">
+    <section id="hero" className="relative min-h-[92vh] flex items-center justify-center bg-transparent overflow-hidden">
       {/* Main Content Container */}
       <div className="w-full px-20">
         <div className="relative max-w-[1400px] mx-auto">
 
-          {/* Main Layout - 更贴近图卡的两侧大字 */}
-          <div className="relative grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+          {/* Main Layout - 优化对称性 */}
+          <div className="relative grid grid-cols-[1fr_auto_1fr] items-center gap-8">
             {/* DIGITAL - 左侧 */}
-            <div className="text-right mr-[-14px] relative">
+            <div className="text-right relative pr-4">
               <h1 className="font-display uppercase text-display-hero text-foreground">
                 Digital
               </h1>
             </div>
 
             {/* Hero Image - 中间 */}
+            {/* 占位区域 - 实际卡片由 FlipCard 组件渲染 */}
             <div className="relative">
-              <div className="relative w-[330px] h-[440px] z-10">
-                {/* Image Container */}
-                {/* soft glow behind card */}
-                <div className="absolute -inset-8 rounded-[36px] bg-white/80 blur-2xl -z-10"></div>
-                <div className="w-full h-full rounded-[24px] overflow-hidden bg-gray-200 shadow-[0_34px_80px_rgba(0,0,0,0.13)]">
-                  <img
-                    src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=840&auto=format&fit=crop"
-                    alt="Portrait"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Name Tag - 精确贴在图卡左上外侧 */}
-                <div className="absolute -left-[120px] -top-7">
-                  <span className="uppercase tracking-[0.45em] text-[12px] text-foreground/80">Duncan Robert</span>
-                </div>
-
-                {/* Hi Button - 再放大 */}
-                <button className="absolute -bottom-9 -left-9 w-24 h-24 bg-dr-blue text-white rounded-full flex items-center justify-center text-[22px] font-medium hover:bg-dr-blue-hover transition-all duration-300 shadow-[0_20px_44px_rgba(91,95,255,0.35)] hover:scale-105 transform">
-                  Hi
-                </button>
+              <div className={cn(
+                "relative w-[330px] h-[440px] z-10",
+                hideCard ? "opacity-0" : "opacity-0" // 始终隐藏，因为 FlipCard 会接管
+              )}>
+                {/* 占位空间，保持布局 */}
               </div>
             </div>
 
             {/* DESIGNER - 右侧 */}
-            <div className="text-left ml-[-14px]">
-              <h1 className="font-display uppercase text-display-hero text-foreground">
+            <div className="text-left relative pl-4">
+              <h1 className="font-display uppercase text-display-hero text-foreground -mt-4">
                 Designer
               </h1>
 
-              {/* Subtitle - 使用设计规范的 subtitle 尺寸（响应式 14–16px） */}
-              <p className="text-subtitle text-[#909090] dark:text-[#B0B0B0] mt-1 ml-2 max-w-[220px] leading-[1.6]">
+              {/* Subtitle - 与 DESIGNER 左对齐，稍微上移和左移 */}
+              <p className="text-subtitle text-[#909090] dark:text-[#B0B0B0] mt-4 -ml-1 max-w-[220px] leading-[1.6]">
                 I'm a US-based digital designer
-                <br className="hidden sm:block" />
+                <br />
                 and Framer developer
               </p>
             </div>
