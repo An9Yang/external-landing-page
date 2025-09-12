@@ -1,6 +1,7 @@
 import Navigation from "@/components/layout/navigation";
 import HeroSection from "@/components/sections/hero";
 import ServicesSection from "@/components/sections/services";
+import AboutSection from "@/components/sections/about";
 import FlipCard from "@/components/shared/flip-card";
 
 export default function HomePage() {
@@ -9,6 +10,7 @@ export default function HomePage() {
       <Navigation />
       <HeroSection />
       <ServicesSection />
+      <AboutSection />
       
       {/* 翻转卡片 - 覆盖在页面上方 */}
       <FlipCard 
