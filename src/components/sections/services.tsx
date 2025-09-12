@@ -74,7 +74,7 @@ const ServicesSection = () => {
       className="min-h-screen bg-background relative"
       id="services"
     >
-      <div className="max-w-[1440px] mx-auto px-20 pt-[254px]">
+      <div className="max-w-[1440px] mx-auto px-20 pt-[380px] pb-[150px]">
         <div className="grid grid-cols-[1fr_auto] gap-20 items-start">
           
           {/* 左侧 - 服务列表 */}

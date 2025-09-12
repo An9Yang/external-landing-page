@@ -33,8 +33,9 @@ const FlipCard = ({ frontImage, backImage, className }: FlipCardProps) => {
       const currentScroll = window.scrollY;
       
       // 第一段动画：Hero -> Services
+      // 延长动画距离1.5倍
       const scrollStart1 = 0;
-      const scrollEnd1 = servicesTop;
+      const scrollEnd1 = servicesTop + windowHeight * 0.5; // 延长结束点
       
       let progress1 = 0;
       if (currentScroll >= scrollStart1 && currentScroll <= scrollEnd1) {
@@ -50,8 +51,9 @@ const FlipCard = ({ frontImage, backImage, className }: FlipCardProps) => {
       let progress2 = 0;
       if (aboutSectionRef.current) {
         const aboutTop = aboutSectionRef.current.offsetTop;
+        // 延长动画距离，确保在About内容到达屏幕中心时完成
         const scrollStart2 = servicesTop;
-        const scrollEnd2 = aboutTop;
+        const scrollEnd2 = aboutTop + windowHeight * 0.3; // 调整结束点，让内容居中时动画完成
         
         if (currentScroll >= scrollStart2 && currentScroll <= scrollEnd2) {
           progress2 = (currentScroll - scrollStart2) / (scrollEnd2 - scrollStart2);

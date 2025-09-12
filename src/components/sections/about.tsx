@@ -10,7 +10,7 @@ const AboutSection = () => {
       className="min-h-screen bg-background relative"
       id="about"
     >
-      <div className="max-w-[1440px] mx-auto px-20 pt-[254px]">
+      <div className="max-w-[1440px] mx-auto px-20 pt-[380px] pb-[400px]">
         <div className="grid grid-cols-[1fr_auto] gap-20 items-start">
           
           {/* 左侧 - 内容区域 */}
