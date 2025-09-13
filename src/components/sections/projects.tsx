@@ -59,8 +59,10 @@ const ProjectsSection = () => {
       const scrollY = window.scrollY;
 
       // 计算section内的滚动进度
-      // 让第一张卡片在文字部分刚出现时就立即开始滑入
-      const sectionScrollStart = sectionTop - windowHeight * 0.8; // 更早开始动画，文字在底部时就开始
+      // 根据屏幕大小调整动画开始时机
+      // 大屏幕可以更早开始，小屏幕延后一些以保持间距
+      const scrollStartOffset = windowHeight > 900 ? 0.8 : 0.6;
+      const sectionScrollStart = sectionTop - windowHeight * scrollStartOffset;
       const sectionScrollEnd = sectionTop + sectionHeight - windowHeight;
       
       if (scrollY >= sectionScrollStart && scrollY <= sectionScrollEnd) {
@@ -87,8 +89,8 @@ const ProjectsSection = () => {
       style={{ height: `${250 + projects.length * 100}vh` }} // 减少总高度，让动画更紧凑
     >
       {/* 标题部分 - 不再固定，可以被滚动推出 */}
-      <div className="pt-[150px] pb-[40px] bg-background">
-        <div className="max-w-[1440px] mx-auto px-20">
+      <div className="bg-background" style={{ paddingTop: '15vh', paddingBottom: '8vh' }}>
+        <div className="max-w-[1440px] mx-auto px-[5vw]">
           <h2 className="text-[48px] font-bold text-foreground mb-4">
             FEATURED PROJECTS
           </h2>
@@ -103,7 +105,7 @@ const ProjectsSection = () => {
       {/* 卡片容器 - 固定定位，占据整个视口 */}
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
         
-        <div className="relative w-full max-w-[1100px] h-[750px] mx-auto px-20">
+        <div className="relative w-full mx-auto px-[5vw]" style={{ maxWidth: 'min(1100px, 85vw)', height: 'min(75vh, 750px)' }}>
           {projects.map((project, index) => {
             const windowHeight = window.innerHeight;
             
@@ -125,9 +127,12 @@ const ProjectsSection = () => {
             
             // 计算当前卡片的个体进度 (0 到 1)
             let cardProgress = 0;
-            // 第一张卡片给更大的初始进度，让它更早出现
+            // 第一张卡片给初始进度，根据屏幕大小调整
+            // 小屏幕上减少初始进度，让卡片和文字有更多间距
+            const screenRatio = windowHeight / 1080; // 以1080p为基准
+            const initialProgress = Math.max(0.1, Math.min(0.25, screenRatio * 0.25));
             if (index === 0 && mappedProgress >= 0) {
-              cardProgress = Math.min(1, (mappedProgress + 0.25) / cardDuration);
+              cardProgress = Math.min(1, (mappedProgress + initialProgress) / cardDuration);
             } else if (mappedProgress >= cardProgressStart && mappedProgress <= cardProgressEnd) {
               cardProgress = (mappedProgress - cardProgressStart) / (cardProgressEnd - cardProgressStart);
             } else if (mappedProgress > cardProgressEnd) {
@@ -135,8 +140,10 @@ const ProjectsSection = () => {
             }
             
             // 卡片Y位置：从屏幕底部滑到中心偏上位置
-            // 减少160px让卡片停在更高的位置（约4cm）
-            let translateY = (windowHeight / 2 + 375) * (1 - cardProgress) - (cardProgress === 1 ? 160 : cardProgress * 160);
+            // 使用视口高度的百分比而不是固定像素，确保在不同屏幕上表现一致
+            const cardHeight = windowHeight * 0.75; // 卡片高度为视口的75%
+            const cardFinalOffset = windowHeight * 0.05; // 减少向上偏移，让卡片位置更低，远离header
+            let translateY = (windowHeight / 2 + cardHeight / 2) * (1 - cardProgress) - (cardProgress === 1 ? cardFinalOffset : cardProgress * cardFinalOffset);
             
             // 缩放逻辑：当下一张卡片开始进入时就开始缩小
             let scale = 1;
