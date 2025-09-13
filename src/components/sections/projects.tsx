@@ -59,7 +59,8 @@ const ProjectsSection = () => {
       const scrollY = window.scrollY;
 
       // 计算section内的滚动进度
-      const sectionScrollStart = sectionTop - windowHeight * 0.5;
+      // 让第一张卡片在文字部分刚出现时就立即开始滑入
+      const sectionScrollStart = sectionTop - windowHeight * 0.8; // 更早开始动画，文字在底部时就开始
       const sectionScrollEnd = sectionTop + sectionHeight - windowHeight;
       
       if (scrollY >= sectionScrollStart && scrollY <= sectionScrollEnd) {
@@ -83,10 +84,10 @@ const ProjectsSection = () => {
       ref={sectionRef}
       className="relative bg-background"
       id="projects"
-      style={{ height: `${400 + projects.length * 150}vh` }} // 进一步增加高度确保最后一张卡片能完全滑入
+      style={{ height: `${250 + projects.length * 100}vh` }} // 减少总高度，让动画更紧凑
     >
       {/* 标题部分 - 不再固定，可以被滚动推出 */}
-      <div className="pt-[200px] pb-[150px] bg-background">
+      <div className="pt-[150px] pb-[40px] bg-background">
         <div className="max-w-[1440px] mx-auto px-20">
           <h2 className="text-[48px] font-bold text-foreground mb-4">
             FEATURED PROJECTS
@@ -101,14 +102,15 @@ const ProjectsSection = () => {
 
       {/* 卡片容器 - 固定定位，占据整个视口 */}
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
-        <div className="relative w-full max-w-[1100px] h-[650px] mx-auto px-20">
+        
+        <div className="relative w-full max-w-[1100px] h-[750px] mx-auto px-20">
           {projects.map((project, index) => {
             const windowHeight = window.innerHeight;
             
             // 每张卡片占总进度的一部分（有重叠）
             const cardDuration = 0.35; // 动画持续时间
             const totalCards = projects.length;
-            const spacing = 0.3; // 固定间隙
+            const spacing = 0.28; // 适当增加卡片间隙
             
             // 计算需要的总进度范围
             const lastCardStart = (totalCards - 1) * spacing;
@@ -117,20 +119,24 @@ const ProjectsSection = () => {
             // 将scrollProgress从[0,1]映射到[0,totalProgressNeeded]
             const mappedProgress = scrollProgress * totalProgressNeeded;
             
-            // 所有卡片正常间隔
-            const cardProgressStart = index * spacing;
+            // 第一张卡片提前开始，其他卡片正常间隔
+            const cardProgressStart = index === 0 ? 0 : index * spacing;
             const cardProgressEnd = cardProgressStart + cardDuration;
             
             // 计算当前卡片的个体进度 (0 到 1)
             let cardProgress = 0;
-            if (mappedProgress >= cardProgressStart && mappedProgress <= cardProgressEnd) {
+            // 第一张卡片给更大的初始进度，让它更早出现
+            if (index === 0 && mappedProgress >= 0) {
+              cardProgress = Math.min(1, (mappedProgress + 0.25) / cardDuration);
+            } else if (mappedProgress >= cardProgressStart && mappedProgress <= cardProgressEnd) {
               cardProgress = (mappedProgress - cardProgressStart) / (cardProgressEnd - cardProgressStart);
             } else if (mappedProgress > cardProgressEnd) {
               cardProgress = 1;
             }
             
-            // 卡片Y位置：从屏幕底部滑到中心
-            let translateY = (windowHeight / 2 + 325) * (1 - cardProgress); // 325是卡片高度的一半
+            // 卡片Y位置：从屏幕底部滑到中心偏上位置
+            // 减少160px让卡片停在更高的位置（约4cm）
+            let translateY = (windowHeight / 2 + 375) * (1 - cardProgress) - (cardProgress === 1 ? 160 : cardProgress * 160);
             
             // 缩放逻辑：当下一张卡片开始进入时就开始缩小
             let scale = 1;
@@ -138,8 +144,8 @@ const ProjectsSection = () => {
             if (mappedProgress > nextCardStart && index < totalCards - 1) {
               // 计算下一张卡片的进度
               const nextCardProgress = Math.min(1, (mappedProgress - nextCardStart) / cardDuration);
-              // 从下一张卡片一开始进入就开始缩小
-              scale = 1 - nextCardProgress * 0.12; // 线性缩小到0.88
+              // 从下一张卡片一开始进入就开始缩小，缩小幅度更大
+              scale = 1 - nextCardProgress * 0.25; // 线性缩小到0.75，进一步增大缩小幅度
             }
             
             // Z-index：后面的卡片在上面
@@ -152,7 +158,7 @@ const ProjectsSection = () => {
               <div
                 key={project.id}
                 className={cn(
-                  "absolute inset-0 rounded-[32px] overflow-hidden",
+                  "absolute inset-0 rounded-[20px] overflow-hidden",
                   "shadow-[0_50px_100px_rgba(0,0,0,0.2)]"
                 )}
                 style={{
