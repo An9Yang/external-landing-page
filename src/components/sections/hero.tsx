@@ -1,32 +1,16 @@
-import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/components/theme-provider";
 
 interface HeroSectionProps {
   hideCard?: boolean;
 }
 
 const HeroSection = ({ hideCard = false }: HeroSectionProps) => {
-  const [isDark, setIsDark] = useState(false);
-
-  const applyTheme = (dark: boolean) => {
-    const root = document.documentElement;
-    if (dark) root.classList.add("dark");
-    else root.classList.remove("dark");
-  };
-
-  useEffect(() => {
-    const stored = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initDark = stored ? stored === "dark" : prefersDark;
-    applyTheme(initDark);
-    setIsDark(initDark);
-  }, []);
+  const { theme, setTheme } = useTheme();
+  const isDark = theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
 
   const toggleTheme = () => {
-    const next = !isDark;
-    setIsDark(next);
-    applyTheme(next);
-    localStorage.setItem("theme", next ? "dark" : "light");
+    setTheme(isDark ? "light" : "dark");
   };
 
   return (

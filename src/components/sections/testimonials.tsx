@@ -100,7 +100,7 @@ const TestimonialsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-32">
           {/* First Row */}
           {/* Testimonial Card 1 */}
-          <div className="bg-card rounded-[20px] p-6 border border-border">
+          <div className="bg-white dark:bg-gray-900 rounded-[20px] p-6 border border-gray-200 dark:border-gray-800">
             <div className="flex gap-1 mb-4">
               {[...Array(5)].map((_, i) => (
                 <Star
@@ -130,7 +130,7 @@ const TestimonialsSection = () => {
           </div>
 
           {/* Testimonial Card 2 */}
-          <div className="bg-card rounded-[20px] p-6 border border-border">
+          <div className="bg-white dark:bg-gray-900 rounded-[20px] p-6 border border-gray-200 dark:border-gray-800">
             <div className="flex gap-1 mb-4">
               {[...Array(5)].map((_, i) => (
                 <Star
@@ -160,7 +160,7 @@ const TestimonialsSection = () => {
           </div>
 
           {/* 98% Satisfaction Card (right of first row) */}
-          <div className="bg-foreground rounded-[20px] p-6 text-background flex flex-col justify-center items-center min-h-[250px]">
+          <div className="bg-black dark:bg-white rounded-[20px] p-6 text-white dark:text-black flex flex-col justify-center items-center min-h-[250px]">
             <div className="text-[12px] opacity-80 mb-2 text-center">
               I've worked with 50+ happy clients
             </div>
@@ -170,7 +170,7 @@ const TestimonialsSection = () => {
 
           {/* Second Row */}
           {/* 200% Growth Card (left of second row) */}
-          <div className="bg-dr-blue rounded-[20px] p-6 text-white flex flex-col justify-center items-center min-h-[250px]">
+          <div className="bg-[#5B5FFF] dark:bg-[#6B6FFF] rounded-[20px] p-6 text-white flex flex-col justify-center items-center min-h-[250px]">
             <div className="text-[12px] opacity-80 mb-2 text-center">
               My work helped clients grow their revenue by 200%
             </div>
@@ -179,7 +179,7 @@ const TestimonialsSection = () => {
           </div>
 
           {/* Testimonial Card 3 */}
-          <div className="bg-card rounded-[20px] p-6 border border-border">
+          <div className="bg-white dark:bg-gray-900 rounded-[20px] p-6 border border-gray-200 dark:border-gray-800">
             <div className="flex gap-1 mb-4">
               {[...Array(5)].map((_, i) => (
                 <Star
@@ -209,7 +209,7 @@ const TestimonialsSection = () => {
           </div>
 
           {/* Testimonial Card 4 */}
-          <div className="bg-card rounded-[20px] p-6 border border-border">
+          <div className="bg-white dark:bg-gray-900 rounded-[20px] p-6 border border-gray-200 dark:border-gray-800">
             <div className="flex gap-1 mb-4">
               {[...Array(5)].map((_, i) => (
                 <Star

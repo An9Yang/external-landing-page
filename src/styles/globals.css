@@ -99,7 +99,34 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    /* Duncan Robert Dark Theme Colors */
+    --color-bg: #0a0a0a;
+    --color-surface: #1a1a1a;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #a0a0a0;
+    --color-text-muted: #707070;
+    --color-border: #2a2a2a;
+    --color-shadow: rgba(0, 0, 0, 0.3);
+    --color-accent-blue: #6B6FFF;
+    --color-accent-blue-hover: #7B7FFF;
+    --color-cta-black: #ffffff;
+    --color-badge-fg: #000000;
+
+    /* Dark theme elevations */
+    --elev-card: 0 12px 40px rgba(0, 0, 0, 0.4), 0 4px 10px rgba(0, 0, 0, 0.2);
+    --elev-hover: 0 20px 60px rgba(0, 0, 0, 0.5), 0 6px 14px rgba(0, 0, 0, 0.3);
+    --elev-nav: 0 2px 6px rgba(0, 0, 0, 0.3);
+
+    /* Services section tokens for dark */
+    --service-row-bg: #1a1a1a;
+    --service-row-bg-active: #222222;
+    --service-row-divider: rgba(255,255,255,0.06);
+    --service-shadow: 0 4px 12px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+    --service-shadow-active: 0 10px 20px rgba(0,0,0,0.4), 0 3px 8px rgba(0,0,0,0.25);
+    --service-preview-shadow: 0 30px 90px rgba(0,0,0,0.5), 0 12px 28px rgba(0,0,0,0.3);
+
+    /* Tailwind compatibility */
+    --background: 0 0% 4%;
     --foreground: 0 0% 98%;
 
     --muted: 240 3.7% 15.9%;
@@ -205,9 +232,15 @@ html {
 }
 
 /* Map DS tokens to Tailwind variables where useful */
-:root {
-  --background: 0 0% 94%; /* = var(--ds-bg) */
-  --foreground: 0 0% 6%;  /* ~ #0f0f0f */
+.dark {
+  /* Design System Tokens for Dark Mode */
+  --ds-bg: #0a0a0a;
+  --ds-surface: #1a1a1a;
+  --ds-text: #ffffff;
+  --ds-text-muted: #a0a0a0;
+  --ds-border: #2a2a2a;
+  --ds-shadow-card: 0 12px 40px rgba(0,0,0,0.4), 0 4px 10px rgba(0,0,0,0.2);
+  --ds-shadow-hover: 0 20px 60px rgba(0,0,0,0.5), 0 6px 14px rgba(0,0,0,0.3);
 }
 
 /* Component-level aliases to promote consistent usage */
