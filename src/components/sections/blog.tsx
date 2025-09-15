@@ -16,7 +16,7 @@ const blogPosts: BlogPost[] = [
     date: "Apr 30, 2025",
     title: "5 DESIGN TRENDS THAT WILL DEFINE 2024",
     description: "Explore the top design trends for 2024 that will influence web, UI/UX, and branding projects, helping you stay ahead of the curve.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop"
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const blogPosts: BlogPost[] = [
     date: "Apr 27, 2025",
     title: "HOW TO STREAMLINE YOUR DESIGN WORKFLOW",
     description: "Discover practical strategies to improve your design process, save time, and deliver quality work more efficiently.",
-    image: "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?q=80&w=800&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1200&auto=format&fit=crop"
   }
 ];
 

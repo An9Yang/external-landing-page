@@ -22,7 +22,7 @@ const testimonials: Testimonial[] = [
     id: 1,
     name: "John Harris",
     role: "Marketing Director",
-    avatar: "https://i.pravatar.cc/150?img=33",
+    avatar: "https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?q=80&w=256&auto=format&fit=crop",
     rating: 5,
     content: "Duncan truly understood my vision and turned it into impactful designs. The results went beyond my expectations!"
   },
@@ -30,7 +30,7 @@ const testimonials: Testimonial[] = [
     id: 2,
     name: "Michael Lee",
     role: "Product Manager",
-    avatar: "https://i.pravatar.cc/150?img=14",
+    avatar: "https://images.unsplash.com/photo-1520975682031-4e28a0b86e1a?q=80&w=256&auto=format&fit=crop",
     rating: 5,
     content: "He took the time to understand our goals and delivered a design that resonated perfectly with our audience."
   },
@@ -38,7 +38,7 @@ const testimonials: Testimonial[] = [
     id: 3,
     name: "Sarah Johnson",
     role: "CEO",
-    avatar: "https://i.pravatar.cc/150?img=31",
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=256&auto=format&fit=crop",
     rating: 5,
     content: "His design skills are unmatched. He transformed my ideas into a high-performing, visually striking website."
   },
@@ -46,7 +46,7 @@ const testimonials: Testimonial[] = [
     id: 4,
     name: "Laura Bennett",
     role: "Small Business Owner",
-    avatar: "https://i.pravatar.cc/150?img=45",
+    avatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=256&auto=format&fit=crop",
     rating: 5,
     content: "As a small business owner, I appreciated how stress-free Duncan made the process."
   }

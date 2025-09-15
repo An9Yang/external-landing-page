@@ -16,7 +16,7 @@ const projects: Project[] = [
     title: "SUMMER VIBES FESTIVAL CAMPAIGN",
     category: "Graphic Design",
     description: "Created promotional materials for the 'Summer Vibes Festival' including posters, flyers, and social media graphics.",
-    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2000&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?q=80&w=2000&auto=format&fit=crop",
     bgColor: "bg-gradient-to-br from-blue-900 via-purple-900 to-pink-900"
   },
   {
@@ -24,7 +24,7 @@ const projects: Project[] = [
     title: "CORAL SPIRAL ABSTRACT",
     category: "Branding",
     description: "Description is visually dominant element of card. Featured Coral Colored spiral form with modern flowing texture and soft pink gradient background emphasizing modern digital design.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2000&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2000&auto=format&fit=crop",
     bgColor: "bg-gradient-to-br from-pink-400 via-red-400 to-orange-400"
   },
   {
@@ -32,7 +32,7 @@ const projects: Project[] = [
     title: "SHOPEASE REDESIGN SPRINT",
     category: "UI / UX Design",
     description: "Redesigned the unified 24/7 e-commerce app to enhance user experience shopping.",
-    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2000&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=2000&auto=format&fit=crop",
     bgColor: "bg-gradient-to-br from-purple-400 via-pink-300 to-blue-300"
   },
   {
@@ -40,7 +40,7 @@ const projects: Project[] = [
     title: "BLACK GEOMETRIC PRISMS",
     category: "Branding",
     description: "A collection of sharp, angular black prisms floating against a gradient dark background, showcasing a modern and sophisticated approach to digital 3D geometric composition.",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2000&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=2000&auto=format&fit=crop",
     bgColor: "bg-gradient-to-br from-gray-900 via-gray-800 to-black"
   }
 ];
@@ -180,12 +180,12 @@ const ProjectsSection = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover mix-blend-overlay opacity-50"
+                    className="w-full h-full object-cover"
                   />
                 </div>
 
-                {/* 内容覆盖层 */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+                {/* 内容覆盖层：减弱遮罩强度，避免压灰/偏色 */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
                 {/* 卡片内容 */}
                 <div className="absolute bottom-0 left-0 right-0 p-16">

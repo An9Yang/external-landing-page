@@ -16,8 +16,8 @@ const ContactSection = () => {
               {/* Profile Image */}
               <div className="relative w-[400px] h-[500px] rounded-[20px] overflow-hidden bg-card border border-border shadow-[var(--elev-card)]">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop"
-                  alt="Duncan Shim"
+                  src="https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1000&auto=format&fit=crop"
+                  alt="studio still life"
                   className="w-full h-full object-cover"
                 />
               </div>

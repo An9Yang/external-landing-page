@@ -33,7 +33,7 @@ const Navigation = ({ className }: NavigationProps) => {
           <div className="relative">
             <div className="w-8 h-8 rounded-full bg-gray-300 overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=120&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=120&auto=format&fit=crop"
                 alt="avatar"
                 className="w-full h-full object-cover"
               />
