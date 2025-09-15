@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+// no utils needed here
 
 interface BlogPost {
   id: number;
@@ -48,24 +48,24 @@ const BlogSection = () => {
           {blogPosts.map((post) => (
             <div key={post.id} className="group cursor-pointer">
               {/* Image Container */}
-              <div className="relative rounded-[20px] overflow-hidden mb-6 aspect-[16/10] bg-gray-100 border border-border">
+              <div className="relative rounded-[20px] overflow-hidden aspect-[16/10] bg-gray-100 border border-border">
                 <img
                   src={post.image}
                   alt={post.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
+              </div>
 
-                {/* Overlapping meta chip like reference */}
-                <div className="absolute -bottom-4 left-4 flex items-center gap-2 bg-white border-2 border-dr-blue/40 rounded-full px-2.5 py-1.5 shadow-sm">
-                  <span className="px-2 py-0.5 text-[12px] text-dr-blue rounded-full border border-dr-blue/40">
-                    {post.category}
-                  </span>
-                  <span className="text-[12px] text-foreground/70">{post.date}</span>
-                </div>
+              {/* Meta (outside image) */}
+              <div className="flex items-center gap-2 mt-3 mb-2">
+                <span className="px-2 py-0.5 text-[12px] text-dr-blue rounded-full border border-dr-blue/40">
+                  {post.category}
+                </span>
+                <span className="text-[12px] text-foreground/70">{post.date}</span>
               </div>
 
               {/* Content */}
-              <div className="pt-2">
+              <div className="pt-1">
                 {/* Title */}
                 <h3 className="text-[24px] font-display tracking-wide uppercase text-foreground mb-2 group-hover:text-dr-blue transition-colors">
                   {post.title}
