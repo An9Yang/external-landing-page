@@ -227,8 +227,6 @@ const ProjectsSection = () => {
 
           // 计算最后一张卡片的进度（与卡片代码完全一致）
           let cardProgress = 0;
-          const screenRatio = windowHeight / 1080;
-          const initialProgress = Math.max(0.1, Math.min(0.25, screenRatio * 0.25));
           if (mappedProgress >= lastCardStart && mappedProgress <= lastCardEnd) {
             cardProgress = (mappedProgress - lastCardStart) / (lastCardEnd - lastCardStart);
           } else if (mappedProgress > lastCardEnd) {
