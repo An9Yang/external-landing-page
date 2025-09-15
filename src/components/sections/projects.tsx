@@ -104,27 +104,27 @@ const ProjectsSection = () => {
 
       {/* 卡片容器 - 固定定位，占据整个视口 */}
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
-        
+
         <div className="relative w-full mx-auto px-[5vw]" style={{ maxWidth: 'min(1100px, 85vw)', height: 'min(75vh, 750px)' }}>
           {projects.map((project, index) => {
             const windowHeight = window.innerHeight;
-            
+
             // 每张卡片占总进度的一部分（有重叠）
             const cardDuration = 0.35; // 动画持续时间
             const totalCards = projects.length;
             const spacing = 0.28; // 适当增加卡片间隙
-            
+
             // 计算需要的总进度范围
             const lastCardStart = (totalCards - 1) * spacing;
             const totalProgressNeeded = lastCardStart + cardDuration;
-            
+
             // 将scrollProgress从[0,1]映射到[0,totalProgressNeeded]
             const mappedProgress = scrollProgress * totalProgressNeeded;
-            
+
             // 第一张卡片提前开始，其他卡片正常间隔
             const cardProgressStart = index === 0 ? 0 : index * spacing;
             const cardProgressEnd = cardProgressStart + cardDuration;
-            
+
             // 计算当前卡片的个体进度 (0 到 1)
             let cardProgress = 0;
             // 第一张卡片给初始进度，根据屏幕大小调整
@@ -138,13 +138,13 @@ const ProjectsSection = () => {
             } else if (mappedProgress > cardProgressEnd) {
               cardProgress = 1;
             }
-            
+
             // 卡片Y位置：从屏幕底部滑到中心偏上位置
             // 使用视口高度的百分比而不是固定像素，确保在不同屏幕上表现一致
             const cardHeight = windowHeight * 0.75; // 卡片高度为视口的75%
             const cardFinalOffset = windowHeight * 0.05; // 减少向上偏移，让卡片位置更低，远离header
             let translateY = (windowHeight / 2 + cardHeight / 2) * (1 - cardProgress) - (cardProgress === 1 ? cardFinalOffset : cardProgress * cardFinalOffset);
-            
+
             // 缩放逻辑：当下一张卡片开始进入时就开始缩小
             let scale = 1;
             const nextCardStart = (index + 1) * spacing;
@@ -154,10 +154,10 @@ const ProjectsSection = () => {
               // 从下一张卡片一开始进入就开始缩小，缩小幅度更大
               scale = 1 - nextCardProgress * 0.25; // 线性缩小到0.75，进一步增大缩小幅度
             }
-            
+
             // Z-index：后面的卡片在上面
             const zIndex = (index + 1) * 10;
-            
+
             // 如果卡片还没开始进入，隐藏它
             const opacity = mappedProgress >= cardProgressStart ? 1 : 0;
 
@@ -210,6 +210,59 @@ const ProjectsSection = () => {
             );
           })}
         </div>
+
+        {/* Browse All Projects Button - 使用与最后一张卡片完全相同的动画 */}
+        {(() => {
+          const windowHeight = window.innerHeight;
+          const cardDuration = 0.35;
+          const totalCards = projects.length;
+          const spacing = 0.28;
+          const lastCardIndex = totalCards - 1;
+
+          // 使用与最后一张卡片完全相同的计算逻辑
+          const lastCardStart = lastCardIndex * spacing;
+          const lastCardEnd = lastCardStart + cardDuration;
+          const totalProgressNeeded = lastCardStart + cardDuration;
+          const mappedProgress = scrollProgress * totalProgressNeeded;
+
+          // 计算最后一张卡片的进度（与卡片代码完全一致）
+          let cardProgress = 0;
+          const screenRatio = windowHeight / 1080;
+          const initialProgress = Math.max(0.1, Math.min(0.25, screenRatio * 0.25));
+          if (mappedProgress >= lastCardStart && mappedProgress <= lastCardEnd) {
+            cardProgress = (mappedProgress - lastCardStart) / (lastCardEnd - lastCardStart);
+          } else if (mappedProgress > lastCardEnd) {
+            cardProgress = 1;
+          }
+
+          // 使用与最后一张卡片完全相同的Y位置计算
+          const cardHeight = windowHeight * 0.75;
+          const cardFinalOffset = windowHeight * 0.05;
+          let cardTranslateY = (windowHeight / 2 + cardHeight / 2) * (1 - cardProgress) - (cardProgress === 1 ? cardFinalOffset : cardProgress * cardFinalOffset);
+
+          // 按钮的可见性（当最后一张卡片开始进入时显示）
+          const buttonVisible = mappedProgress >= lastCardStart;
+          const buttonOpacity = cardProgress;
+
+          return (
+            <div
+              className="absolute left-1/2 -translate-x-1/2"
+              style={{
+                // 按钮位置：卡片容器底部 + 间距
+                bottom: `calc(50% - ${cardHeight / 2}px - 50px)`,
+                transform: `translateX(-50%) translateY(${cardTranslateY}px)`,
+                opacity: buttonOpacity,
+                visibility: buttonVisible ? 'visible' : 'hidden',
+                transition: 'none',
+                zIndex: 1, // 低于卡片
+              }}
+            >
+              <button className="px-10 py-4 bg-transparent border-2 border-dr-blue text-dr-blue font-medium text-[15px] uppercase tracking-wider rounded-full hover:bg-dr-blue hover:text-white transition-all duration-300 whitespace-nowrap">
+                Browse All Projects
+              </button>
+            </div>
+          );
+        })()}
       </div>
 
     </section>
