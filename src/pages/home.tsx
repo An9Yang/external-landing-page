@@ -4,6 +4,8 @@ import ServicesSection from "@/components/sections/services";
 import AboutSection from "@/components/sections/about";
 import ProjectsSection from "@/components/sections/projects";
 import TestimonialsSection from "@/components/sections/testimonials";
+import BlogSection from "@/components/sections/blog";
+import ContactSection from "@/components/sections/contact";
 import FlipCard from "@/components/shared/flip-card";
 
 export default function HomePage() {
@@ -15,6 +17,8 @@ export default function HomePage() {
       <AboutSection />
       <ProjectsSection />
       <TestimonialsSection />
+      <BlogSection />
+      <ContactSection />
 
       {/* 翻转卡片 - 覆盖在页面上方 */}
       <FlipCard

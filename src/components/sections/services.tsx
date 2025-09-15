@@ -74,14 +74,14 @@ const ServicesSection = () => {
       className="min-h-screen bg-background relative"
       id="services"
     >
-      <div className="max-w-[1440px] mx-auto px-20 pt-[380px] pb-[150px]">
+      <div className="max-w-[1440px] mx-auto px-[5vw] pt-[380px] pb-[150px]">
         <div className="grid grid-cols-[1fr_auto] gap-20 items-start">
           
           {/* 左侧 - 服务列表 */}
           <div className="space-y-8">
             {/* 标题 */}
             <div className="mb-16">
-              <h2 className="text-[48px] font-bold text-foreground mb-6">
+              <h2 className="ds-title text-foreground mb-6">
                 WHAT I CAN DO FOR YOU
               </h2>
               <p className="text-[16px] text-foreground/60 max-w-[500px]">
@@ -146,12 +146,9 @@ const ServicesSection = () => {
             </div>
           </div>
 
-          {/* 右侧 - 占位区域 */}
-          <div className="w-[420px]">
-            {/* 占位空间 - FlipCard 会定位到这里 */}
-            <div className="w-[330px] h-[440px]">
-              {/* 空占位，保持布局 */}
-            </div>
+          {/* 右侧列保留布局，仅移除清晰图片与小圆点 */}
+          <div className="relative flex justify-center lg:justify-end">
+            <div className="w-[380px]" />
           </div>
         </div>
       </div>

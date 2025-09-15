@@ -91,7 +91,7 @@ const ProjectsSection = () => {
       {/* 标题部分 - 不再固定，可以被滚动推出 */}
       <div className="bg-background" style={{ paddingTop: '15vh', paddingBottom: '8vh' }}>
         <div className="max-w-[1440px] mx-auto px-[5vw]">
-          <h2 className="text-[48px] font-bold text-foreground mb-4">
+          <h2 className="ds-title text-foreground mb-4">
             FEATURED PROJECTS
           </h2>
           <p className="text-[16px] text-foreground/60 max-w-[500px]">

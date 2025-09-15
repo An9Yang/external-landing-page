@@ -32,8 +32,8 @@ const HeroSection = ({ hideCard = false }: HeroSectionProps) => {
   return (
     <section id="hero" className="relative min-h-[92vh] flex items-center justify-center bg-transparent overflow-hidden">
       {/* Main Content Container */}
-      <div className="w-full px-20">
-        <div className="relative max-w-[1400px] mx-auto">
+      <div className="w-full px-[5vw]">
+        <div className="relative max-w-[1440px] mx-auto">
 
           {/* Main Layout - 优化对称性 */}
           <div className="relative grid grid-cols-[1fr_auto_1fr] items-center gap-8">

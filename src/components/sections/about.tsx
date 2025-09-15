@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import { cn } from "@/lib/utils";
 
 const AboutSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -10,14 +9,13 @@ const AboutSection = () => {
       className="min-h-screen bg-background relative"
       id="about"
     >
-      <div className="max-w-[1440px] mx-auto px-20 pt-[380px] pb-[300px]">
-        <div className="grid grid-cols-[1fr_auto] gap-20 items-start">
-          
+      <div className="max-w-[1440px] mx-auto px-[5vw] pt-[380px] pb-[300px]">
+        <div className="grid grid-cols-1 gap-20 items-start">
           {/* 左侧 - 内容区域 */}
           <div className="space-y-8">
             {/* 标题和描述 */}
             <div className="mb-12">
-              <h2 className="text-[48px] font-bold text-foreground mb-6">
+              <h2 className="ds-title text-foreground mb-6">
                 ABOUT ME
               </h2>
               <p className="text-[16px] text-foreground/60 max-w-[500px] leading-relaxed">
@@ -84,18 +82,9 @@ const AboutSection = () => {
             </div>
 
             {/* MY STORY 按钮 */}
-            <button className="px-8 py-3 border-2 border-dr-blue text-dr-blue rounded-full font-medium text-[14px] hover:bg-dr-blue hover:text-white transition-all duration-300">
-              MY STORY
-            </button>
+            <button className="ds-outline-btn">MY STORY</button>
           </div>
-
-          {/* 右侧 - 占位区域 */}
-          <div className="w-[420px]">
-            {/* 占位空间 - FlipCard 会定位到这里 */}
-            <div className="w-[330px] h-[440px]">
-              {/* 空占位，保持布局 */}
-            </div>
-          </div>
+          {/* 右侧 - 倾斜人像卡与紫色小点已移除 */}
         </div>
       </div>
 

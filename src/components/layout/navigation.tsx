@@ -43,16 +43,16 @@ const Navigation = ({ className }: NavigationProps) => {
 
           {/* 中间 - 导航链接，更小字号更紧凑 */}
           <div className="flex items-center gap-8">
-            <a href="#home" className="text-[14px] font-normal text-black/90 hover:text-black transition-colors dark:text-white/90 dark:hover:text-white">Home</a>
+            <a href="#hero" className="text-[14px] font-normal text-black/90 hover:text-black transition-colors dark:text-white/90 dark:hover:text-white">Home</a>
             <a href="#about" className="text-[14px] font-normal text-black/90 hover:text-black transition-colors dark:text-white/90 dark:hover:text-white">About</a>
             <a href="#projects" className="text-[14px] font-normal text-black/90 hover:text-black transition-colors dark:text-white/90 dark:hover:text-white">Projects</a>
             <a href="#blogs" className="text-[14px] font-normal text-black/90 hover:text-black transition-colors dark:text-white/90 dark:hover:text-white">Blogs</a>
           </div>
 
-          {/* 右侧 - Contact 更小胶囊 */}
-          <button className="px-5 py-2 bg-black text-white text-[14px] font-normal rounded-full hover:bg-black/90 transition-colors shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] dark:bg-white dark:text-black dark:hover:bg-white/90">
+          {/* 右侧 - Contact 胶囊链接（跳转到联系区） */}
+          <a href="#contact" className="px-5 py-2 bg-black text-white text-[14px] font-normal rounded-full hover:bg-black/90 transition-colors shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] dark:bg-white dark:text-black dark:hover:bg-white/90">
             Contact
-          </button>
+          </a>
         </div>
       </div>
     </nav>

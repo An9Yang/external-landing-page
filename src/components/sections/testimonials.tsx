@@ -87,7 +87,7 @@ const TestimonialsSection = () => {
       <div className="max-w-[1440px] mx-auto px-[5vw]">
         {/* Section Title */}
         <div className="mb-16">
-          <h2 className="text-[48px] font-bold text-foreground mb-4">
+          <h2 className="ds-title text-foreground mb-4">
             WHAT MY CLIENTS SAY
           </h2>
           <p className="text-[16px] text-foreground/60 max-w-[600px]">
@@ -159,7 +159,17 @@ const TestimonialsSection = () => {
             </div>
           </div>
 
-          {/* 200% Growth Card */}
+          {/* 98% Satisfaction Card (right of first row) */}
+          <div className="bg-foreground rounded-[20px] p-6 text-background flex flex-col justify-center items-center min-h-[250px]">
+            <div className="text-[12px] opacity-80 mb-2 text-center">
+              I've worked with 50+ happy clients
+            </div>
+            <div className="text-[56px] font-bold leading-none">98%</div>
+            <div className="text-[14px] opacity-80 mt-2">Satisfaction Rate</div>
+          </div>
+
+          {/* Second Row */}
+          {/* 200% Growth Card (left of second row) */}
           <div className="bg-dr-blue rounded-[20px] p-6 text-white flex flex-col justify-center items-center min-h-[250px]">
             <div className="text-[12px] opacity-80 mb-2 text-center">
               My work helped clients grow their revenue by 200%
@@ -168,7 +178,6 @@ const TestimonialsSection = () => {
             <div className="text-[14px] opacity-80 mt-2">Growth</div>
           </div>
 
-          {/* Second Row */}
           {/* Testimonial Card 3 */}
           <div className="bg-card rounded-[20px] p-6 border border-border">
             <div className="flex gap-1 mb-4">
@@ -228,22 +237,13 @@ const TestimonialsSection = () => {
               </div>
             </div>
           </div>
-
-          {/* 98% Satisfaction Card */}
-          <div className="bg-foreground rounded-[20px] p-6 text-background flex flex-col justify-center items-center min-h-[250px]">
-            <div className="text-[12px] opacity-80 mb-2 text-center">
-              I've worked with 50+ happy clients
-            </div>
-            <div className="text-[56px] font-bold leading-none">98%</div>
-            <div className="text-[14px] opacity-80 mt-2">Satisfaction Rate</div>
-          </div>
         </div>
 
         {/* FAQ Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* FAQ Title */}
           <div>
-            <h2 className="text-[48px] font-bold text-foreground mb-4">
+            <h2 className="ds-title text-foreground mb-4">
               FREQUENTLY ASKED<br />QUESTIONS
             </h2>
             <p className="text-[16px] text-foreground/60 max-w-[400px]">
@@ -263,7 +263,7 @@ const TestimonialsSection = () => {
                   onClick={() => toggleFAQ(faq.id)}
                   className="w-full flex items-center justify-between py-4 text-left transition-all hover:text-dr-blue"
                 >
-                  <span className="text-[18px] font-medium text-foreground">
+                  <span className="text-[18px] font-medium text-foreground uppercase tracking-wide">
                     {index + 1}. {faq.question}
                   </span>
                   <ChevronDown

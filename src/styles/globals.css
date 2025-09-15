@@ -171,6 +171,60 @@ body {
   color: hsl(var(--foreground));
 }
 
+/* Smooth anchor scroll for in-page navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Design System Tokens (DS) */
+:root {
+  /* Brand */
+  --ds-brand: #5B5FFF;
+  --ds-brand-600: #4B4FEF;
+
+  /* Surfaces & text */
+  --ds-bg: #F5F5F5;         /* page background */
+  --ds-surface: #FFFFFF;    /* cards, panels */
+  --ds-text: #000000;
+  --ds-text-muted: #666666;
+  --ds-border: #E5E5E5;
+
+  /* Radii */
+  --ds-radius-card: 20px;
+  --ds-radius-pill: 999px;
+
+  /* Elevation */
+  --ds-shadow-card: 0 12px 40px rgba(0,0,0,0.12), 0 4px 10px rgba(0,0,0,0.06);
+  --ds-shadow-hover: 0 20px 60px rgba(0,0,0,0.16), 0 6px 14px rgba(0,0,0,0.08);
+
+  /* Typography scale */
+  --ds-h2: 48px; /* Section titles */
+  --ds-h3: 24px;
+  --ds-body: 16px;
+  --ds-meta: 12px;
+}
+
+/* Map DS tokens to Tailwind variables where useful */
+:root {
+  --background: 0 0% 94%; /* = var(--ds-bg) */
+  --foreground: 0 0% 6%;  /* ~ #0f0f0f */
+}
+
+/* Component-level aliases to promote consistent usage */
+@layer components {
+  .ds-title {
+    @apply font-display uppercase tracking-wide; /* Bebas Neue */
+    font-size: var(--ds-h2);
+    line-height: 1.2;
+  }
+  .ds-outline-btn {
+    @apply px-8 py-4 bg-transparent border-2 text-[15px] font-medium uppercase tracking-wider rounded-full transition-all duration-300;
+    border-color: var(--ds-brand);
+    color: var(--ds-brand);
+  }
+  .ds-outline-btn:hover { background-color: var(--ds-brand); color: #fff; }
+}
+
 /* Grid Background Pattern */
 .bg-grid-slate-100 {
   background-image: linear-gradient(
