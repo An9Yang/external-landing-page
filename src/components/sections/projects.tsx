@@ -191,7 +191,7 @@ const ProjectsSection = () => {
                 <div className="absolute bottom-0 left-0 right-0 p-16">
                   {/* 类别标签 */}
                   <div className="inline-block mb-6">
-                    <span className="px-5 py-2.5 bg-dr-blue text-white text-[13px] font-medium rounded-full">
+                    <span className="px-5 py-2.5 bg-fs-blue text-white text-[13px] font-medium rounded-full">
                       {project.category}
                     </span>
                   </div>

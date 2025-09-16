@@ -58,7 +58,7 @@ const BlogSection = () => {
 
               {/* Meta (outside image) */}
               <div className="flex items-center gap-2 mt-3 mb-2">
-                <span className="px-2 py-0.5 text-[12px] text-dr-blue rounded-full border border-dr-blue/40">
+                <span className="px-2 py-0.5 text-[12px] text-fs-blue rounded-full border border-fs-blue/40">
                   {post.category}
                 </span>
                 <span className="text-[12px] text-foreground/70">{post.date}</span>
@@ -67,7 +67,7 @@ const BlogSection = () => {
               {/* Content */}
               <div className="pt-1">
                 {/* Title */}
-                <h3 className="text-[24px] font-display tracking-wide uppercase text-foreground mb-2 group-hover:text-dr-blue transition-colors">
+                <h3 className="text-[24px] font-bold tracking-tight uppercase text-foreground mb-2 group-hover:text-fs-orange transition-colors">
                   {post.title}
                 </h3>
 

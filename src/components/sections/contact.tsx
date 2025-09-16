@@ -23,7 +23,7 @@ const ContactSection = () => {
               </div>
 
               {/* Decorative Wave Circle */}
-              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#5B5FFF] dark:bg-[#6B6FFF] rounded-full flex items-center justify-center shadow-lg">
+              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-fs-orange rounded-full flex items-center justify-center shadow-lg">
                 <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center">
                   <svg
                     width="40"
@@ -63,7 +63,7 @@ const ContactSection = () => {
                   <input
                     type="text"
                     placeholder="John Smith"
-                    className="w-full px-5 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-full text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#5B5FFF] dark:focus:border-[#6B6FFF] transition-colors"
+                    className="w-full px-5 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-full text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-fs-orange transition-colors"
                   />
                 </div>
                 <div>
@@ -71,7 +71,7 @@ const ContactSection = () => {
                   <input
                     type="email"
                     placeholder="johnsmith@gmail.com"
-                    className="w-full px-5 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-full text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#5B5FFF] dark:focus:border-[#6B6FFF] transition-colors"
+                    className="w-full px-5 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-full text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-fs-orange transition-colors"
                   />
                 </div>
               </div>
@@ -83,7 +83,7 @@ const ContactSection = () => {
                   <button
                     type="button"
                     onClick={() => setServiceType(serviceType ? "" : "open")}
-                    className="w-full px-5 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-full text-left flex items-center justify-between focus:outline-none focus:border-[#5B5FFF] dark:focus:border-[#6B6FFF] transition-colors"
+                    className="w-full px-5 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-full text-left flex items-center justify-between focus:outline-none focus:border-fs-orange transition-colors"
                   >
                     <span className="text-gray-400 dark:text-gray-500">Select</span>
                     <ChevronDown className="w-5 h-5 text-foreground/60" />
@@ -97,7 +97,7 @@ const ContactSection = () => {
                 <textarea
                   placeholder="Hello, I'd like to enquire about..."
                   rows={4}
-                  className="w-full px-5 py-4 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-[16px] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#5B5FFF] dark:focus:border-[#6B6FFF] transition-colors resize-none"
+                  className="w-full px-5 py-4 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-[16px] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-fs-orange transition-colors resize-none"
                 />
               </div>
 
@@ -114,7 +114,7 @@ const ContactSection = () => {
       </div>
 
       {/* Footer bar */}
-      <div className="bg-[#5B5FFF] dark:bg-[#6B6FFF] text-white">
+      <div className="bg-fs-orange text-white">
         <div className="max-w-[1440px] mx-auto px-[5vw] py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Left Side - Contact Info */}

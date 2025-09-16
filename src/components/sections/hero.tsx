@@ -20,17 +20,14 @@ const HeroSection = ({ hideCard = false }: HeroSectionProps) => {
         <div className="relative max-w-[1440px] mx-auto">
 
           {/* Main Layout - 优化对称性 */}
-          <div className="relative grid grid-cols-[1fr_auto_1fr] items-center gap-8">
+          <div className="relative grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-x-16">
             {/* DIGITAL - 左侧 */}
-            <div className="text-right relative pr-4">
-              <div className="inline-block text-left">
-                {/* DUNCAN ROBERT - 名字标题 */}
-                <div className="mb-2">
-                  <span className="text-[14px] font-medium uppercase tracking-[0.3em] text-[#666666] dark:text-[#B0B0B0]">
-                    DUNCAN ROBERT
-                  </span>
-                </div>
-                <h1 className="font-display uppercase text-display-hero text-foreground">
+            <div className="flex justify-end">
+              <div className="text-right space-y-3">
+                <span className="text-[14px] font-medium uppercase tracking-[0.3em] text-[#666666] dark:text-[#B0B0B0]">
+                  DUNCAN ROBERT
+                </span>
+                <h1 className="font-sans font-extrabold uppercase text-display-hero text-foreground">
                   Digital
                 </h1>
               </div>
@@ -48,17 +45,19 @@ const HeroSection = ({ hideCard = false }: HeroSectionProps) => {
             </div>
 
             {/* DESIGNER - 右侧 */}
-            <div className="text-left relative pl-4">
-              <h1 className="font-display uppercase text-display-hero text-foreground -mt-4">
-                Designer
-              </h1>
+            <div className="flex justify-start">
+              <div className="text-left space-y-4 max-w-[220px]">
+                <h1 className="font-sans font-extrabold uppercase text-display-hero text-foreground">
+                  Designer
+                </h1>
 
-              {/* Subtitle - 与 DESIGNER 左对齐，稍微上移和左移 */}
-              <p className="text-subtitle text-[#909090] dark:text-[#B0B0B0] mt-4 -ml-1 max-w-[220px] leading-[1.6]">
-                I'm a US-based digital designer
-                <br />
-                and Framer developer
-              </p>
+                {/* Subtitle - 与 DESIGNER 左对齐 */}
+                <p className="text-subtitle text-[#909090] dark:text-[#B0B0B0] leading-[1.6]">
+                  I'm a US-based digital designer
+                  <br />
+                  and Framer developer
+                </p>
+              </div>
             </div>
           </div>
         </div>

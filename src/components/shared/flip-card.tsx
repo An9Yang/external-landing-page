@@ -126,10 +126,10 @@ const FlipCard = ({ frontImage, backImage, className }: FlipCardProps) => {
       <button 
         className={cn(
           "absolute -bottom-9 -left-9 w-24 h-24",
-          "bg-dr-blue text-white rounded-full",
+          "bg-[var(--color-accent-orange)] text-white rounded-full",
           "flex items-center justify-center text-[22px] font-medium",
-          "shadow-[0_20px_44px_rgba(91,95,255,0.35)]",
-          "hover:bg-dr-blue-hover hover:scale-105",
+          "shadow-[0_20px_44px_rgba(254,91,0,0.32)]",
+          "hover:bg-[var(--color-accent-orange-hover)] hover:scale-105",
           "transition-transform duration-300",
           "z-10"
         )}

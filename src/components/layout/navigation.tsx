@@ -25,8 +25,8 @@ const Navigation = ({ className }: NavigationProps) => {
           className={cn(
             "flex items-center gap-8 pl-2.5 pr-2.5 py-2 rounded-full transition-all duration-300 w-max border",
             scrolled
-              ? "bg-white/95 border-black/10 shadow-[0_2px_8px_rgba(0,0,0,0.06)] dark:bg-black/60 dark:border-white/15"
-              : "bg-white/90 border-black/8 shadow-[0_1px_4px_rgba(0,0,0,0.05)] dark:bg-black/50 dark:border-white/10"
+              ? "bg-white border-gray-200 shadow-[0_2px_12px_rgba(0,0,0,0.1)] dark:bg-gray-900 dark:border-gray-700"
+              : "bg-white border-gray-200 shadow-[0_1px_6px_rgba(0,0,0,0.08)] dark:bg-gray-900 dark:border-gray-700"
           )}
         >
           {/* 左侧 - Avatar */}
@@ -50,7 +50,7 @@ const Navigation = ({ className }: NavigationProps) => {
           </div>
 
           {/* 右侧 - Contact 胶囊链接（跳转到联系区） */}
-          <a href="#contact" className="px-5 py-2 bg-black text-white text-[14px] font-normal rounded-full hover:bg-black/90 transition-colors shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] dark:bg-white dark:text-black dark:hover:bg-white/90">
+          <a href="#contact" className="px-5 py-2 bg-fs-orange text-white text-[14px] font-medium rounded-full hover:bg-fs-orange/90 transition-colors shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] dark:bg-fs-orange dark:text-white dark:hover:bg-fs-orange/90">
             Contact
           </a>
         </div>

@@ -108,7 +108,7 @@ const ServicesSection = () => {
                       <span className="text-[16px] text-foreground/40">
                         {String(service.id).padStart(1, '0')}.
                       </span>
-                      <h3 className="text-[24px] font-medium text-foreground group-hover:text-dr-blue transition-colors">
+                      <h3 className="text-[24px] font-semibold text-foreground group-hover:text-fs-orange transition-colors">
                         {service.title}
                       </h3>
                     </div>
@@ -134,7 +134,7 @@ const ServicesSection = () => {
                       <ul className="space-y-2">
                         {service.details.map((detail, idx) => (
                           <li key={idx} className="text-[14px] text-foreground/50 flex items-center gap-2">
-                            <span className="w-1 h-1 bg-dr-blue rounded-full"></span>
+                            <span className="w-1 h-1 bg-fs-orange rounded-full"></span>
                             {detail}
                           </li>
                         ))}

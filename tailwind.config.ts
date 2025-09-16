@@ -14,8 +14,8 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        sans: ["-apple-system", "BlinkMacSystemFont", "SF Pro Display", "Segoe UI", "system-ui", "Inter", "sans-serif"],
-        display: ["Bebas Neue", "Oswald", "Impact", "Anton", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "SF Pro Display", "Segoe UI", "system-ui", "sans-serif"],
+        display: ["Inter", "-apple-system", "BlinkMacSystemFont", "SF Pro Display", "Segoe UI", "system-ui", "sans-serif"],
       },
       colors: {
         // 保留shadcn/ui的CSS变量
@@ -24,16 +24,16 @@ const config: Config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        
-        // Duncan Robert设计系统颜色
-        "dr-bg": "#F5F5F5",
-        "dr-black": "#000000",
-        "dr-gray": "#666666",
-        "dr-blue": "#5B5FFF",
-        "dr-blue-hover": "#4B4FEF",
-        
+
+        // Food Security品牌色彩
+        "fs-orange": "#FE5B00",
+        "fs-blue": "#557FFF",
+        "fs-white": "#FFFFFF",
+        "fs-light-gray": "#F4F5EE",
+        "fs-black": "#000000",
+
         primary: {
-          DEFAULT: "#5B5FFF",
+          DEFAULT: "#FE5B00",
           foreground: "#FFFFFF",
         },
         secondary: {
@@ -78,17 +78,27 @@ const config: Config = {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      fontWeight: {
+        'extralight': '200',
+        'light': '300',
+        'normal': '400',
+        'medium': '500',
+        'semibold': '600',
+        'bold': '700',
+        'extrabold': '800',
+        'black': '900',
+      },
       fontSize: {
         'hero': ['120px', { lineHeight: '1', fontWeight: '900', letterSpacing: '-0.02em' }],
-        'hero-name': ['13px', { lineHeight: '1.2', fontWeight: '400', letterSpacing: '0.35em' }],
-        'h1': ['48px', { lineHeight: '1.2', fontWeight: '700' }],
-        'h2': ['36px', { lineHeight: '1.3', fontWeight: '600' }],
-        'h3': ['24px', { lineHeight: '1.4', fontWeight: '600' }],
-        'h4': ['20px', { lineHeight: '1.5', fontWeight: '500' }],
+        'hero-name': ['13px', { lineHeight: '1.2', fontWeight: '200', letterSpacing: '0.35em' }],
+        'h1': ['48px', { lineHeight: '1.2', fontWeight: '800' }],
+        'h2': ['36px', { lineHeight: '1.3', fontWeight: '700' }],
+        'h3': ['24px', { lineHeight: '1.4', fontWeight: '700' }],
+        'h4': ['20px', { lineHeight: '1.5', fontWeight: '600' }],
         // Responsive subtitle for hero subcopy
-        'subtitle': ['clamp(14px,1.02vw,16px)', { lineHeight: '1.6', fontWeight: '400' }],
+        'subtitle': ['clamp(14px,1.02vw,16px)', { lineHeight: '1.6', fontWeight: '300' }],
         // Display title for hero, tuned to wide screens to avoid oversize
-        'display-hero': ['clamp(104px,6vw,156px)', { lineHeight: '0.9', fontWeight: '600', letterSpacing: '-0.02em' }],
+        'display-hero': ['clamp(104px,6vw,156px)', { lineHeight: '0.9', fontWeight: '800', letterSpacing: '-0.02em' }],
       },
       spacing: {
         'container': '80px',

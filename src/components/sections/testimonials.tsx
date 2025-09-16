@@ -105,7 +105,7 @@ const TestimonialsSection = () => {
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
-                  className="w-4 h-4 fill-dr-blue text-dr-blue"
+                  className="w-4 h-4 fill-fs-orange text-fs-orange"
                 />
               ))}
             </div>
@@ -135,7 +135,7 @@ const TestimonialsSection = () => {
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
-                  className="w-4 h-4 fill-dr-blue text-dr-blue"
+                  className="w-4 h-4 fill-fs-orange text-fs-orange"
                 />
               ))}
             </div>
@@ -170,7 +170,7 @@ const TestimonialsSection = () => {
 
           {/* Second Row */}
           {/* 200% Growth Card (left of second row) */}
-          <div className="bg-[#5B5FFF] dark:bg-[#6B6FFF] rounded-[20px] p-6 text-white flex flex-col justify-center items-center min-h-[250px]">
+          <div className="bg-fs-blue rounded-[20px] p-6 text-white flex flex-col justify-center items-center min-h-[250px]">
             <div className="text-[12px] opacity-80 mb-2 text-center">
               My work helped clients grow their revenue by 200%
             </div>
@@ -184,7 +184,7 @@ const TestimonialsSection = () => {
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
-                  className="w-4 h-4 fill-dr-blue text-dr-blue"
+                  className="w-4 h-4 fill-fs-orange text-fs-orange"
                 />
               ))}
             </div>
@@ -214,7 +214,7 @@ const TestimonialsSection = () => {
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
-                  className="w-4 h-4 fill-dr-blue text-dr-blue"
+                  className="w-4 h-4 fill-fs-orange text-fs-orange"
                 />
               ))}
             </div>
