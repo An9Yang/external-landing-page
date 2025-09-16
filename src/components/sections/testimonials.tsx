@@ -100,7 +100,7 @@ const TestimonialsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-32">
           {/* First Row */}
           {/* Testimonial Card 1 */}
-          <div className="bg-white dark:bg-gray-900 rounded-[20px] p-6 border border-gray-200 dark:border-gray-800">
+          <div className="bg-fs-white dark:bg-black rounded-[20px] p-6 border border-black/10 dark:border-white/15">
             <div className="flex gap-1 mb-4">
               {[...Array(5)].map((_, i) => (
                 <Star
@@ -130,7 +130,7 @@ const TestimonialsSection = () => {
           </div>
 
           {/* Testimonial Card 2 */}
-          <div className="bg-white dark:bg-gray-900 rounded-[20px] p-6 border border-gray-200 dark:border-gray-800">
+          <div className="bg-fs-white dark:bg-black rounded-[20px] p-6 border border-black/10 dark:border-white/15">
             <div className="flex gap-1 mb-4">
               {[...Array(5)].map((_, i) => (
                 <Star
@@ -179,7 +179,7 @@ const TestimonialsSection = () => {
           </div>
 
           {/* Testimonial Card 3 */}
-          <div className="bg-white dark:bg-gray-900 rounded-[20px] p-6 border border-gray-200 dark:border-gray-800">
+          <div className="bg-fs-white dark:bg-black rounded-[20px] p-6 border border-black/10 dark:border-white/15">
             <div className="flex gap-1 mb-4">
               {[...Array(5)].map((_, i) => (
                 <Star
@@ -209,7 +209,7 @@ const TestimonialsSection = () => {
           </div>
 
           {/* Testimonial Card 4 */}
-          <div className="bg-white dark:bg-gray-900 rounded-[20px] p-6 border border-gray-200 dark:border-gray-800">
+          <div className="bg-fs-white dark:bg-black rounded-[20px] p-6 border border-black/10 dark:border-white/15">
             <div className="flex gap-1 mb-4">
               {[...Array(5)].map((_, i) => (
                 <Star
@@ -257,11 +257,11 @@ const TestimonialsSection = () => {
             {faqs.map((faq, index) => (
               <div
                 key={faq.id}
-                className="border-b border-border pb-4"
+                className="border-b border-black/10 dark:border-white/15 pb-4"
               >
                 <button
                   onClick={() => toggleFAQ(faq.id)}
-                  className="w-full flex items-center justify-between py-4 text-left transition-all hover:text-dr-blue"
+                  className="w-full flex items-center justify-between py-4 text-left transition-all hover:text-fs-blue"
                 >
                   <span className="text-[18px] font-medium text-foreground uppercase tracking-wide">
                     {index + 1}. {faq.question}

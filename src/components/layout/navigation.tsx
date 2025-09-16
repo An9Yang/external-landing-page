@@ -25,20 +25,20 @@ const Navigation = ({ className }: NavigationProps) => {
           className={cn(
             "flex items-center gap-8 pl-2.5 pr-2.5 py-2 rounded-full transition-all duration-300 w-max border",
             scrolled
-              ? "bg-white border-gray-200 shadow-[0_2px_12px_rgba(0,0,0,0.1)] dark:bg-gray-900 dark:border-gray-700"
-              : "bg-white border-gray-200 shadow-[0_1px_6px_rgba(0,0,0,0.08)] dark:bg-gray-900 dark:border-gray-700"
+              ? "bg-fs-white border-black/10 shadow-[0_2px_12px_rgba(0,0,0,0.1)] dark:bg-black dark:border-white/15"
+              : "bg-fs-white border-black/10 shadow-[0_1px_6px_rgba(0,0,0,0.08)] dark:bg-black dark:border-white/15"
           )}
         >
           {/* 左侧 - Avatar */}
           <div className="relative">
-            <div className="w-8 h-8 rounded-full bg-gray-300 overflow-hidden">
+            <div className="w-8 h-8 rounded-full bg-black/10 overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=120&auto=format&fit=crop"
                 alt="avatar"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute bottom-0 right-0 w-1.5 h-1.5 bg-green-500 rounded-full border-2 border-white"></div>
+            <div className="absolute bottom-0 right-0 w-1.5 h-1.5 bg-fs-blue rounded-full border-2 border-fs-white"></div>
           </div>
 
           {/* 中间 - 导航链接，更小字号更紧凑 */}

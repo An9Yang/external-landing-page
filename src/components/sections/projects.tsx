@@ -17,7 +17,7 @@ const projects: Project[] = [
     category: "Graphic Design",
     description: "Created promotional materials for the 'Summer Vibes Festival' including posters, flyers, and social media graphics.",
     image: "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?q=80&w=2000&auto=format&fit=crop",
-    bgColor: "bg-gradient-to-br from-blue-900 via-purple-900 to-pink-900"
+    bgColor: "bg-gradient-to-br from-fs-blue via-fs-blue/70 to-black"
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const projects: Project[] = [
     category: "Branding",
     description: "Description is visually dominant element of card. Featured Coral Colored spiral form with modern flowing texture and soft pink gradient background emphasizing modern digital design.",
     image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2000&auto=format&fit=crop",
-    bgColor: "bg-gradient-to-br from-pink-400 via-red-400 to-orange-400"
+    bgColor: "bg-gradient-to-br from-fs-orange via-fs-orange/70 to-black"
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const projects: Project[] = [
     category: "UI / UX Design",
     description: "Redesigned the unified 24/7 e-commerce app to enhance user experience shopping.",
     image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=2000&auto=format&fit=crop",
-    bgColor: "bg-gradient-to-br from-purple-400 via-pink-300 to-blue-300"
+    bgColor: "bg-gradient-to-br from-black via-fs-blue to-fs-orange"
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const projects: Project[] = [
     category: "Branding",
     description: "A collection of sharp, angular black prisms floating against a gradient dark background, showcasing a modern and sophisticated approach to digital 3D geometric composition.",
     image: "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=2000&auto=format&fit=crop",
-    bgColor: "bg-gradient-to-br from-gray-900 via-gray-800 to-black"
+    bgColor: "bg-gradient-to-br from-black via-black/80 to-fs-blue"
   }
 ];
 
@@ -255,7 +255,7 @@ const ProjectsSection = () => {
                 zIndex: 1, // 低于卡片
               }}
             >
-              <button className="px-10 py-4 bg-transparent border-2 border-dr-blue text-dr-blue font-medium text-[15px] uppercase tracking-wider rounded-full hover:bg-dr-blue hover:text-white transition-all duration-300 whitespace-nowrap">
+              <button className="px-10 py-4 bg-transparent border-2 border-fs-blue text-fs-blue font-medium text-[15px] uppercase tracking-wider rounded-full hover:bg-fs-blue hover:text-white transition-all duration-300 whitespace-nowrap">
                 Browse All Projects
               </button>
             </div>

@@ -14,7 +14,7 @@ const ContactSection = () => {
           <div className="relative">
             <div className="relative">
               {/* Profile Image */}
-              <div className="relative w-[400px] h-[500px] rounded-[20px] overflow-hidden bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-[var(--elev-card)]">
+              <div className="relative w-[400px] h-[500px] rounded-[20px] overflow-hidden bg-fs-white dark:bg-black border border-black/10 dark:border-white/15 shadow-[var(--elev-card)]">
                 <img
                   src="https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1000&auto=format&fit=crop"
                   alt="studio still life"
@@ -63,7 +63,7 @@ const ContactSection = () => {
                   <input
                     type="text"
                     placeholder="John Smith"
-                    className="w-full px-5 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-full text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-fs-orange transition-colors"
+                    className="w-full px-5 py-3 bg-fs-white dark:bg-black border border-black/10 dark:border-white/15 rounded-full text-black dark:text-white placeholder-black/40 dark:placeholder-white/50 focus:outline-none focus:border-fs-orange transition-colors"
                   />
                 </div>
                 <div>
@@ -71,7 +71,7 @@ const ContactSection = () => {
                   <input
                     type="email"
                     placeholder="johnsmith@gmail.com"
-                    className="w-full px-5 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-full text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-fs-orange transition-colors"
+                    className="w-full px-5 py-3 bg-fs-white dark:bg-black border border-black/10 dark:border-white/15 rounded-full text-black dark:text-white placeholder-black/40 dark:placeholder-white/50 focus:outline-none focus:border-fs-orange transition-colors"
                   />
                 </div>
               </div>
@@ -83,9 +83,9 @@ const ContactSection = () => {
                   <button
                     type="button"
                     onClick={() => setServiceType(serviceType ? "" : "open")}
-                    className="w-full px-5 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-full text-left flex items-center justify-between focus:outline-none focus:border-fs-orange transition-colors"
+                    className="w-full px-5 py-3 bg-fs-white dark:bg-black border border-black/10 dark:border-white/15 rounded-full text-left flex items-center justify-between focus:outline-none focus:border-fs-orange transition-colors"
                   >
-                    <span className="text-gray-400 dark:text-gray-500">Select</span>
+                    <span className="text-black/40 dark:text-white/60">Select</span>
                     <ChevronDown className="w-5 h-5 text-foreground/60" />
                   </button>
                 </div>
@@ -97,7 +97,7 @@ const ContactSection = () => {
                 <textarea
                   placeholder="Hello, I'd like to enquire about..."
                   rows={4}
-                  className="w-full px-5 py-4 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-[16px] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-fs-orange transition-colors resize-none"
+                  className="w-full px-5 py-4 bg-fs-white dark:bg-black border border-black/10 dark:border-white/15 rounded-[16px] text-black dark:text-white placeholder-black/40 dark:placeholder-white/50 focus:outline-none focus:border-fs-orange transition-colors resize-none"
                 />
               </div>
 
@@ -165,7 +165,7 @@ const ContactSection = () => {
               <div className="text-[12px]">
                 <span className="opacity-60">Created by</span>
                 <div className="flex items-center gap-2 mt-1">
-                  <div className="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center text-black text-[10px] font-bold">
+                  <div className="w-6 h-6 bg-fs-blue rounded-full flex items-center justify-center text-white text-[10px] font-bold">
                     DS
                   </div>
                   <a href="#" className="underline hover:opacity-80 transition-opacity">

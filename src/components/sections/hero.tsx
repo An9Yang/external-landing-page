@@ -24,7 +24,7 @@ const HeroSection = ({ hideCard = false }: HeroSectionProps) => {
             {/* DIGITAL - 左侧 */}
             <div className="flex justify-end">
               <div className="text-right space-y-3">
-                <span className="text-[14px] font-medium uppercase tracking-[0.3em] text-[#666666] dark:text-[#B0B0B0]">
+                <span className="text-[14px] font-medium uppercase tracking-[0.3em] text-black/60 dark:text-white/70">
                   DUNCAN ROBERT
                 </span>
                 <h1 className="font-sans font-extrabold uppercase text-display-hero text-foreground">
@@ -52,7 +52,7 @@ const HeroSection = ({ hideCard = false }: HeroSectionProps) => {
                 </h1>
 
                 {/* Subtitle - 与 DESIGNER 左对齐 */}
-                <p className="text-subtitle text-[#909090] dark:text-[#B0B0B0] leading-[1.6]">
+                <p className="text-subtitle text-black/60 dark:text-white/70 leading-[1.6]">
                   I'm a US-based digital designer
                   <br />
                   and Framer developer
@@ -77,7 +77,7 @@ const HeroSection = ({ hideCard = false }: HeroSectionProps) => {
           <span
             className={
               "inline-block h-[14px] w-[14px] rounded-full transition-transform duration-200 " +
-              (isDark ? "translate-x-6 bg-white" : "translate-x-0.5 bg-gray-500")
+              (isDark ? "translate-x-6 bg-white" : "translate-x-0.5 bg-black/60")
             }
           />
         </button>

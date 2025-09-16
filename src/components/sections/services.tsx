@@ -96,8 +96,8 @@ const ServicesSection = () => {
                 <div
                   key={service.id}
                   className={cn(
-                    "border-t border-foreground/10 transition-all duration-300",
-                    index === services.length - 1 && "border-b"
+                    "border-t border-black/10 dark:border-white/15 transition-all duration-300",
+                    index === services.length - 1 && "border-b border-black/10 dark:border-white/15"
                   )}
                 >
                   <button

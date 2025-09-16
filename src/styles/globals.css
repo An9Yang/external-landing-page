@@ -2,15 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Food Security";
+  src: url("../assets/fonts/FoodSecurity-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Food Security";
+  src: url("../assets/fonts/FoodSecurity-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Food Security";
+  src: url("../assets/fonts/FoodSecurity-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Food Security";
+  src: url("../assets/fonts/FoodSecurity-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Food Security";
+  src: url("../assets/fonts/FoodSecurity-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Food Security";
+  src: url("../assets/fonts/FoodSecurity-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     /* Food Security Brand Colors */
     --color-bg: #F4F5EE;
     --color-surface: #ffffff;
     --color-text-primary: #000000;
-    --color-text-secondary: #666666;
-    --color-text-muted: #999999;
-    --color-border: #E5E5E5;
+    --color-text-secondary: rgba(0, 0, 0, 0.65);
+    --color-text-muted: rgba(0, 0, 0, 0.45);
+    --color-border: rgba(0, 0, 0, 0.08);
     --color-shadow: rgba(0, 0, 0, 0.05);
     --color-accent-orange: #FE5B00;
     --color-accent-orange-hover: #E54E00;
@@ -31,8 +79,8 @@
     --elev-nav: 0 2px 6px rgba(0, 0, 0, 0.08);
     
     /* Services section tokens */
-    --service-row-bg: #f4f4f4;            /* softer gray card */
-    --service-row-bg-active: #f6f6f6;     /* on hover/active, very subtle */
+    --service-row-bg: #F4F5EE;            /* branded light surface */
+    --service-row-bg-active: #FFFFFF;     /* elevated state */
     --service-row-divider: rgba(0,0,0,0.04);
     --service-row-radius: 16px;
     --service-shadow: 0 4px 12px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.04);
@@ -42,34 +90,34 @@
     --service-preview-shadow: 0 30px 90px rgba(0,0,0,0.14), 0 12px 28px rgba(0,0,0,0.08);
     
     /* Original Tailwind CSS variables (keep for compatibility) */
-    --background: 0 0% 94%;
-    --foreground: 0 0% 6%;
+    --background: 69 26% 94%;
+    --foreground: 0 0% 0%;
 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted: 69 26% 94%;
+    --muted-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover-foreground: 0 0% 0%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 0 0% 0%;
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
+    --border: 0 0% 0%;
+    --input: 0 0% 0%;
 
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 21 100% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: 225 100% 67%;
+    --secondary-foreground: 0 0% 100%;
 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 225 100% 67%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 21 100% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --ring: 240 10% 3.9%;
+    --ring: 21 100% 50%;
 
     --radius: 0.5rem;
 
@@ -105,9 +153,9 @@
     --color-bg: #0a0a0a;
     --color-surface: #1a1a1a;
     --color-text-primary: #ffffff;
-    --color-text-secondary: #a0a0a0;
-    --color-text-muted: #707070;
-    --color-border: #2a2a2a;
+    --color-text-secondary: rgba(255, 255, 255, 0.65);
+    --color-text-muted: rgba(255, 255, 255, 0.45);
+    --color-border: rgba(255, 255, 255, 0.12);
     --color-shadow: rgba(0, 0, 0, 0.3);
     --color-accent-orange: #FF6B1A;
     --color-accent-orange-hover: #FF7B2A;
@@ -122,42 +170,42 @@
     --elev-nav: 0 2px 6px rgba(0, 0, 0, 0.3);
 
     /* Services section tokens for dark */
-    --service-row-bg: #1a1a1a;
-    --service-row-bg-active: #222222;
+    --service-row-bg: rgba(255, 255, 255, 0.08);
+    --service-row-bg-active: rgba(255, 255, 255, 0.12);
     --service-row-divider: rgba(255,255,255,0.06);
     --service-shadow: 0 4px 12px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
     --service-shadow-active: 0 10px 20px rgba(0,0,0,0.4), 0 3px 8px rgba(0,0,0,0.25);
     --service-preview-shadow: 0 30px 90px rgba(0,0,0,0.5), 0 12px 28px rgba(0,0,0,0.3);
 
     /* Tailwind compatibility */
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
 
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 100%;
 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
 
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
+    --border: 0 0% 100%;
+    --input: 0 0% 100%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
+    --primary: 21 100% 50%;
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 225 100% 67%;
+    --secondary-foreground: 0 0% 0%;
 
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 225 100% 67%;
+    --accent-foreground: 0 0% 0%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 21 100% 50%;
+    --destructive-foreground: 0 0% 0%;
 
-    --ring: 240 4.9% 83.9%;
+    --ring: 21 100% 50%;
 
     --chart-1: 220 70% 50%;
 
@@ -192,7 +240,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
 }
 
@@ -281,7 +329,7 @@ html {
 /* Custom utilities for 3D Carousel */
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(to right, #1e293b, #475569);
+    background: linear-gradient(to right, #FE5B00, #557FFF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
