@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 interface Project {
@@ -8,19 +9,22 @@ interface Project {
   description: string;
   image: string;
   bgColor: string;
+  slug: string;
 }
 
 const projects: Project[] = [
   {
     id: 1,
-    title: "SUMMER VIBES FESTIVAL CAMPAIGN",
-    category: "Graphic Design",
-    description: "Created promotional materials for the 'Summer Vibes Festival' including posters, flyers, and social media graphics.",
-    image: "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?q=80&w=2000&auto=format&fit=crop",
+    slug: "vistahaven",
+    title: "VISTAHAVEN REAL ESTATE TEMPLATE",
+    category: "Web Design",
+    description: "A luxurious property showcase experience blending immersive visuals with confident typography and warm gradients.",
+    image: "https://images.unsplash.com/photo-1505692620874-9bc5ede69f87?q=80&w=2400&auto=format&fit=crop",
     bgColor: "bg-gradient-to-br from-fs-blue via-fs-blue/70 to-black"
   },
   {
     id: 2,
+    slug: "coral-spiral",
     title: "CORAL SPIRAL ABSTRACT",
     category: "Branding",
     description: "Description is visually dominant element of card. Featured Coral Colored spiral form with modern flowing texture and soft pink gradient background emphasizing modern digital design.",
@@ -29,6 +33,7 @@ const projects: Project[] = [
   },
   {
     id: 3,
+    slug: "shoapease-redesign",
     title: "SHOPEASE REDESIGN SPRINT",
     category: "UI / UX Design",
     description: "Redesigned the unified 24/7 e-commerce app to enhance user experience shopping.",
@@ -37,6 +42,7 @@ const projects: Project[] = [
   },
   {
     id: 4,
+    slug: "black-geometric-prisms",
     title: "BLACK GEOMETRIC PRISMS",
     category: "Branding",
     description: "A collection of sharp, angular black prisms floating against a gradient dark background, showcasing a modern and sophisticated approach to digital 3D geometric composition.",
@@ -162,11 +168,13 @@ const ProjectsSection = () => {
             const opacity = mappedProgress >= cardProgressStart ? 1 : 0;
 
             return (
-              <div
+              <Link
                 key={project.id}
+                to={`/projects/${project.slug}`}
                 className={cn(
                   "absolute inset-0 rounded-[20px] overflow-hidden",
-                  "shadow-[0_50px_100px_rgba(0,0,0,0.2)]"
+                  "shadow-[0_50px_100px_rgba(0,0,0,0.2)]",
+                  "focus:outline-none focus-visible:ring-4 focus-visible:ring-fs-blue/40"
                 )}
                 style={{
                   transform: `translateY(${translateY}px) scale(${scale})`,
@@ -206,7 +214,7 @@ const ProjectsSection = () => {
                     {project.description}
                   </p>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
@@ -255,9 +263,12 @@ const ProjectsSection = () => {
                 zIndex: 1, // 低于卡片
               }}
             >
-              <button className="px-10 py-4 bg-transparent border-2 border-fs-blue text-fs-blue font-medium text-[15px] uppercase tracking-wider rounded-full hover:bg-fs-blue hover:text-white transition-all duration-300 whitespace-nowrap">
+              <Link
+                to={`/projects/${projects[0].slug}`}
+                className="px-10 py-4 bg-transparent border-2 border-fs-blue text-fs-blue font-medium text-[15px] uppercase tracking-wider rounded-full hover:bg-fs-blue hover:text-white transition-all duration-300 whitespace-nowrap"
+              >
                 Browse All Projects
-              </button>
+              </Link>
             </div>
           );
         })()}

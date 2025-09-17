@@ -1,18 +1,10 @@
 import { cn } from "@/lib/utils";
-import { useTheme } from "@/components/theme-provider";
 
 interface HeroSectionProps {
   hideCard?: boolean;
 }
 
 const HeroSection = ({ hideCard = false }: HeroSectionProps) => {
-  const { theme, setTheme } = useTheme();
-  const isDark = theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
-
-  const toggleTheme = () => {
-    setTheme(isDark ? "light" : "dark");
-  };
-
   return (
     <section id="hero" className="relative min-h-[92vh] flex items-center justify-center bg-transparent overflow-hidden">
       {/* Main Content Container */}
@@ -64,24 +56,6 @@ const HeroSection = ({ hideCard = false }: HeroSectionProps) => {
       </div>
 
       {/* 右侧蓝点（原图光标，不再渲染） */}
-
-      {/* Bottom Theme Toggle - 悬浮在页面底部，随滚动固定 */}
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100]">
-        <button
-          aria-label="Toggle theme"
-          role="switch"
-          aria-checked={isDark}
-          onClick={toggleTheme}
-          className="w-12 h-[18px] rounded-full border border-black/10 bg-white/80 dark:bg-black/70 dark:border-white/10 backdrop-blur-sm flex items-center px-0.5 shadow-sm"
-        >
-          <span
-            className={
-              "inline-block h-[14px] w-[14px] rounded-full transition-transform duration-200 " +
-              (isDark ? "translate-x-6 bg-white" : "translate-x-0.5 bg-black/60")
-            }
-          />
-        </button>
-      </div>
     </section>
   );
 };
