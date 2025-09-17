@@ -19,7 +19,7 @@ const projects: Project[] = [
     title: "VISTAHAVEN REAL ESTATE TEMPLATE",
     category: "Web Design",
     description: "A luxurious property showcase experience blending immersive visuals with confident typography and warm gradients.",
-    image: "https://images.unsplash.com/photo-1505692620874-9bc5ede69f87?q=80&w=2400&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2400&auto=format&fit=crop",
     bgColor: "bg-gradient-to-br from-fs-blue via-fs-blue/70 to-black"
   },
   {

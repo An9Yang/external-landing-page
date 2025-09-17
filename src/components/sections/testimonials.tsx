@@ -24,7 +24,7 @@ const testimonials: Testimonial[] = [
     role: "Marketing Director",
     avatar: "https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?q=80&w=256&auto=format&fit=crop",
     rating: 5,
-    content: "Duncan truly understood my vision and turned it into impactful designs. The results went beyond my expectations!"
+    content: "PlayHire truly understood my vision and turned it into impactful designs. The results went beyond my expectations!"
   },
   {
     id: 2,
@@ -48,7 +48,7 @@ const testimonials: Testimonial[] = [
     role: "Small Business Owner",
     avatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=256&auto=format&fit=crop",
     rating: 5,
-    content: "As a small business owner, I appreciated how stress-free Duncan made the process."
+    content: "As a small business owner, I appreciated how stress-free PlayHire made the process."
   }
 ];
 

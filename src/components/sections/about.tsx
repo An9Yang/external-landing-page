@@ -16,10 +16,10 @@ const AboutSection = () => {
             {/* 标题和描述 */}
             <div className="mb-12">
               <h2 className="ds-title text-foreground mb-6">
-                ABOUT ME
+                ABOUT US
               </h2>
               <p className="text-[16px] text-foreground/60 max-w-[500px] leading-relaxed">
-                Hi, I'm Duncan — a digital designer and Framer developer
+                Hi, We're PlayHire — a digital design and development studio
                 passionate about crafting meaningful and impactful digital
                 experiences.
               </p>
@@ -49,7 +49,7 @@ const AboutSection = () => {
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-[14px] text-foreground/60">Email :</span>
-                <span className="text-[14px] text-foreground">designer@example.com</span>
+                <span className="text-[14px] text-foreground">hello@playhire.com</span>
               </div>
             </div>
 
@@ -81,8 +81,8 @@ const AboutSection = () => {
               </a>
             </div>
 
-            {/* MY STORY 按钮 */}
-            <button className="ds-outline-btn">MY STORY</button>
+            {/* OUR STORY 按钮 */}
+            <button className="ds-outline-btn">OUR STORY</button>
           </div>
           {/* 右侧 - 倾斜人像卡与紫色小点已移除 */}
         </div>

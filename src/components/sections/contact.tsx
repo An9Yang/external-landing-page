@@ -166,10 +166,10 @@ const ContactSection = () => {
                 <span className="opacity-60">Created by</span>
                 <div className="flex items-center gap-2 mt-1">
                   <div className="w-6 h-6 bg-fs-blue rounded-full flex items-center justify-center text-white text-[10px] font-bold">
-                    DS
+                    PH
                   </div>
                   <a href="#" className="underline hover:opacity-80 transition-opacity">
-                    Duncan Shim
+                    PlayHire Studio
                   </a>
                 </div>
               </div>

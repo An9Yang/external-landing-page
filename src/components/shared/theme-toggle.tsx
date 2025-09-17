@@ -31,12 +31,12 @@ const ThemeToggle = () => {
         role="switch"
         aria-checked={isDark}
         onClick={toggleTheme}
-        className="w-12 h-[18px] rounded-full border border-black/10 bg-white/80 dark:bg-black/70 dark:border-white/10 backdrop-blur-sm flex items-center px-0.5 shadow-sm"
+        className="relative w-[44px] h-[22px] rounded-full border border-black/10 bg-white/80 dark:bg-black/70 dark:border-white/10 backdrop-blur-sm flex items-center p-[3px] shadow-sm transition-colors duration-200"
       >
         <span
           className={
-            "inline-block h-[14px] w-[14px] rounded-full transition-transform duration-200 " +
-            (isDark ? "translate-x-6 bg-white" : "translate-x-0.5 bg-black/60")
+            "absolute h-[16px] w-[16px] rounded-full transition-all duration-200 shadow-sm " +
+            (isDark ? "translate-x-[22px] bg-white" : "translate-x-0 bg-black/70")
           }
         />
       </button>

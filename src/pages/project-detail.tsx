@@ -9,7 +9,7 @@ const metaLabelStyles = "text-[12px] uppercase tracking-[0.18em] text-foreground
 
 const metaValueStyles = "mt-2 text-[18px] font-semibold text-foreground";
 
-const sectionHeadingStyles = "text-[28px] md:text-[34px] font-black uppercase tracking-[0.08em] text-foreground";
+const sectionHeadingStyles = "text-[32px] md:text-[42px] font-black uppercase tracking-[0.08em] text-foreground";
 
 const ProjectDetailPage = () => {
   const params = useParams();
@@ -19,13 +19,13 @@ const ProjectDetailPage = () => {
   }, [params.slug]);
 
   return (
-    <div className="min-h-screen bg-background text-foreground pb-24">
+    <div className="min-h-screen bg-background text-foreground pb-32">
       <Navigation />
 
-      <main className="relative pt-32">
-        <div className="max-w-[1200px] mx-auto px-[5vw] flex flex-col gap-24">
+      <main className="relative pt-40">
+        <div className="max-w-[1200px] mx-auto px-[5vw] flex flex-col gap-36">
           {/* Hero */}
-          <section className="grid gap-12">
+          <section className="grid gap-16">
             <div className="flex flex-wrap items-center justify-between gap-6">
               <span className={badgeStyles}>{project.category}</span>
               <div className="flex items-center gap-3 bg-white/80 dark:bg-black/80 border border-black/10 dark:border-white/10 rounded-full px-4 py-2 backdrop-blur">
@@ -40,7 +40,7 @@ const ProjectDetailPage = () => {
               </div>
             </div>
 
-            <div className="space-y-6 max-w-[880px]">
+            <div className="space-y-8 max-w-[880px]">
               <h1 className="text-[92px] md:text-[120px] leading-[0.9] font-black uppercase tracking-tight">
                 {project.title}
               </h1>
@@ -49,7 +49,7 @@ const ProjectDetailPage = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 border border-black/10 dark:border-white/10 rounded-[26px] px-8 py-6 bg-white/80 dark:bg-black/60 backdrop-blur">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border border-black/10 dark:border-white/10 rounded-[26px] px-10 py-8 bg-white/80 dark:bg-black/60 backdrop-blur">
               <div>
                 <p className={metaLabelStyles}>Year</p>
                 <p className={metaValueStyles}>{project.year}</p>
@@ -78,10 +78,10 @@ const ProjectDetailPage = () => {
           </section>
 
           {/* Sections */}
-          <section className="space-y-24">
+          <section className="space-y-36">
             {project.sections.map((section) => (
-              <article key={section.heading} className="space-y-10">
-                <header className="space-y-4">
+              <article key={section.heading} className="space-y-16">
+                <header className="space-y-6">
                   <h2 className={sectionHeadingStyles}>{section.heading} :</h2>
                   <p className="max-w-[820px] text-[17px] leading-[1.8] text-foreground/75">
                     {section.body}
@@ -93,7 +93,7 @@ const ProjectDetailPage = () => {
                     className={
                       section.images.length === 1
                         ? "grid rounded-[26px] overflow-hidden"
-                        : "grid gap-6 md:grid-cols-2"
+                        : "grid gap-10 md:grid-cols-2"
                     }
                   >
                     {section.images.map((src, idx) => (
@@ -111,7 +111,7 @@ const ProjectDetailPage = () => {
           </section>
 
           {/* Related projects */}
-          <section className="space-y-12">
+          <section className="space-y-20 mt-12">
             <div className="flex items-center justify-between gap-4">
               <h3 className="text-[44px] md:text-[56px] font-black uppercase tracking-tight">More Projects</h3>
               <Link
@@ -122,11 +122,11 @@ const ProjectDetailPage = () => {
               </Link>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-12">
               {relatedProjects.map((item) => (
                 <div
                   key={item.slug}
-                  className="group h-full rounded-[26px] border border-black/10 dark:border-white/10 bg-white/80 dark:bg-black/60 backdrop-blur p-6 flex flex-col gap-5 transition-transform duration-300 hover:-translate-y-1"
+                  className="group h-full rounded-[26px] border border-black/10 dark:border-white/10 bg-white/80 dark:bg-black/60 backdrop-blur p-8 flex flex-col gap-6 transition-transform duration-300 hover:-translate-y-1"
                 >
                   <div className="rounded-[20px] overflow-hidden">
                     <img

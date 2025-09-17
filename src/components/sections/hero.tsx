@@ -17,7 +17,7 @@ const HeroSection = ({ hideCard = false }: HeroSectionProps) => {
             <div className="flex justify-end">
               <div className="text-right space-y-3">
                 <span className="text-[14px] font-medium uppercase tracking-[0.3em] text-black/60 dark:text-white/70">
-                  DUNCAN ROBERT
+                  PLAYHIRE STUDIO
                 </span>
                 <h1 className="font-sans font-extrabold uppercase text-display-hero text-foreground">
                   Digital

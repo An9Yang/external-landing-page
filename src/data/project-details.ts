@@ -29,7 +29,7 @@ export const projectDetails: ProjectDetail[] = [
     client: "VistaHaven",
     duration: "2 Weeks",
     heroImage:
-      "https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=2400&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2400&auto=format&fit=crop",
     sections: [
       {
         heading: "Problem",

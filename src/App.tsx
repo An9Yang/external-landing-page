@@ -11,7 +11,7 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider defaultTheme="light" storageKey="duncan-theme">
+    <ThemeProvider defaultTheme="light" storageKey="playhire-theme">
       <TooltipProvider>
         <Toaster richColors />
         <BrowserRouter>

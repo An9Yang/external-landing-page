@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Favicon Generator</title>
+</head>
+<body>
+  <h1>PlayHire Favicon Generator</h1>
+  <p>This will generate optimized favicons with the logo centered and enlarged</p>
+
+  <canvas id="favicon32" width="32" height="32"></canvas>
+  <canvas id="favicon64" width="64" height="64"></canvas>
+  <canvas id="favicon128" width="128" height="128"></canvas>
+
+  <script>
+    // Function to process logo and create favicon
+    function createFavicon(imgSrc, canvasId, size) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+      const img = new Image();
+
+      img.onload = function() {
+        // Clear canvas
+        ctx.clearRect(0, 0, size, size);
+
+        // Calculate crop area (center 40% of original image)
+        const cropSize = img.width * 0.4;
+        const sx = (img.width - cropSize) / 2;
+        const sy = (img.height - cropSize) / 2;
+
+        // Draw cropped and scaled image
+        ctx.drawImage(img, sx, sy, cropSize, cropSize, 0, 0, size, size);
+
+        // Convert to data URL
+        const dataURL = canvas.toDataURL('image/png');
+
+        // Create download link
+        const link = document.createElement('a');
+        link.download = `favicon-${size}x${size}.png`;
+        link.href = dataURL;
+        link.textContent = `Download ${size}x${size} favicon`;
+        document.body.appendChild(link);
+        document.body.appendChild(document.createElement('br'));
+      };
+
+      img.src = imgSrc;
+    }
+
+    // Generate favicons
+    createFavicon('/images/playhire-logo.png', 'favicon32', 32);
+    createFavicon('/images/playhire-logo.png', 'favicon64', 64);
+    createFavicon('/images/playhire-logo.png', 'favicon128', 128);
+  </script>
+</body>
+</html>
