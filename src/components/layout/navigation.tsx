@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/components/theme-provider";
 import { useLocation, Link, useNavigate } from "react-router-dom";
+import logoLight from "@/assets/images/playhire-logo-light.webp";
+import logoDark from "@/assets/images/playhire-logo-dark.webp";
 
 interface NavigationProps {
   className?: string;
@@ -138,7 +140,7 @@ const Navigation = ({ className }: NavigationProps) => {
             <div className="w-10 h-10 flex items-center justify-center overflow-hidden rounded transition-transform duration-200 group-hover:scale-110">
               {/* 亮色logo */}
               <img
-                src="/images/playhire-logo.png"
+                src={logoLight}
                 alt="PlayHire"
                 className="absolute object-contain transition-opacity duration-200"
                 style={{
@@ -154,7 +156,7 @@ const Navigation = ({ className }: NavigationProps) => {
               />
               {/* 暗色logo */}
               <img
-                src="/images/playhire-logo-dark.webp"
+                src={logoDark}
                 alt="PlayHire"
                 className="absolute object-contain transition-opacity duration-200"
                 style={{
